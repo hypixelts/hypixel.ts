@@ -1,7 +1,7 @@
 {
-	"name": "hypixel.js",
+	"name": "hypixel.ts",
 	"version": "1.0.0",
-	"description": "A wrapper built around https://api.hypixel.net",
+	"description": "A simple, easy to use wrapper for Hypixel API.",
 	"main": "dist/index.js",
 	"author": "FC5570",
 	"license": "MIT",
@@ -48,17 +48,18 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/FC5570/hypixel.js"
+		"url": "git+https://github.com/FC5570/hypixel.ts"
+	},
+	"bugs": {
+		"url": "https://github.com/FC5570/hypixel.ts/issues"
 	},
 	"keywords": [
 		"hypixel",
 		"hypixel-api",
 		"hypixel-api-wrapper",
-		"hypixel.js"
+		"hypixel.js",
+		"hypixel.ts"
 	],
-	"bugs": {
-		"url": "https://github.com/FC5570/issues"
-	},
 	"packageManager": "yarn@3.1.1",
 	"prettier": "@sapphire/prettier-config"
 }

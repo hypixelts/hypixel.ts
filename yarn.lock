@@ -2106,9 +2106,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hypixel.js@workspace:.":
+"hypixel.ts@workspace:.":
   version: 0.0.0-use.local
-  resolution: "hypixel.js@workspace:."
+  resolution: "hypixel.ts@workspace:."
   dependencies:
     "@commitlint/cli": ^16.0.2
     "@commitlint/config-conventional": ^16.0.0
