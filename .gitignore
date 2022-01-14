@@ -1,0 +1,15 @@
+node_modules/
+dist/
+
+.yarn/install-state.gz
+.yarn/build-state.yml
+
+**/*.js
+**/*.mjs
+**/*.js.map
+**/*.d.ts
+!src/**/*.d.ts
+**/*.tsbuildinfo
+!vitest.config.ts
+
+tests/config.ts
