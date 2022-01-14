@@ -19,7 +19,6 @@
 		"test": "yarn vitest",
 		"prepare": "yarn husky install",
 		"prepublish": "yarn build && yarn gen-esm",
-		"postinstall": "yarn prepare",
 		"update": "yarn upgrade-interactive --latest"
 	},
 	"dependencies": {
