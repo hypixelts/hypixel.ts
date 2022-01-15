@@ -25,7 +25,8 @@
 	"dependencies": {
 		"@discordjs/collection": "^0.4.0",
 		"@sapphire/async-queue": "^1.1.9",
-		"petitio": "^1.4.0"
+		"petitio": "^1.4.0",
+		"tslib": "^2.3.1"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^16.0.2",
