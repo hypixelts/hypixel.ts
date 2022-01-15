@@ -1,6 +1,6 @@
 import { Client } from '../src';
 
-const client = new Client('bc7928bf-fbbd-48f4-afce-0b553b0f4bc3');
+const client = new Client(process.env.HYPIXEL_API_KEY!);
 
 void client.players.fetch('armc').then((player) => {
 	console.log(player);

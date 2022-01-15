@@ -11,5 +11,3 @@ dist/
 !src/**/*.d.ts
 **/*.tsbuildinfo
 !vitest.config.ts
-
-tests/config.ts
