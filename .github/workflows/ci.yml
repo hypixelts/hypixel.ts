@@ -26,6 +26,8 @@ jobs:
 
       - name: Test
         run: yarn test
+        env:
+          HYPIXEL_API_KEY: ${{ secrets.HYPIXEL_API_KEY }}
 
       - name: Build
         run: yarn build

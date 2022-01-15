@@ -1,8 +1,7 @@
 import { Client } from '../../src';
 import { test, expect } from 'vitest';
-import { apiKey } from '../config';
 
-const client = new Client(apiKey);
+const client = new Client(process.env.HYPIXEL_API_KEY!);
 
 test('OtherManager.getActiveBoosters is instance of Object', async () => {
 	const boosters = await client.other.getActiveBoosters();
