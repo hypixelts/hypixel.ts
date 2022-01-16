@@ -2,6 +2,10 @@ import { BaseClass } from './Base';
 import type { Client } from '../lib';
 import type { APIPlayer } from '../typings';
 
+/**
+ * Represents a Player class.
+ * @extends {BaseClass}
+ */
 export class Player extends BaseClass {
 	public _id?: string;
 	public uuid!: string;
@@ -67,18 +71,35 @@ export class Player extends BaseClass {
 		Object.assign(this, data);
 	}
 
+	/**
+	 * Get the friends of this player.
+	 * @param {boolean} [raw]: Whether to return the raw API data. Defaults to true.
+	 * @returns {Promise<import('../typings').GetPlayerFriendsRawResponse | Player[]>}
+	 */
 	public async getFriends(raw?: boolean) {
 		return this.client.players.getFriends(this.uuid, raw);
 	}
 
+	/**
+	 * Get the recently played games of this player.
+	 * @returns {Promise<import('../typings').GetRecentlyPlayedGamesResponse>}
+	 */
 	public get recentlyPlayedGames() {
 		return this.client.players.getRecentlyPlayedGames(this.uuid);
 	}
 
+	/**
+	 * Get the current status of the player.
+	 * @returns {Promise<import('../typings').GetStatusResponse>}
+	 */
 	public get status() {
 		return this.client.players.getStatus(this.uuid);
 	}
 
+	/**
+	 * Get the ranked skywars data of the player.
+	 * @returns {Promise<import('../typings').GetRankedSkywarsDataResponse>}
+	 */
 	public get rankedSkywarsData() {
 		return this.client.players.getRankedSkywarsData(this.uuid);
 	}
