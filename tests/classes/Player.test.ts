@@ -12,21 +12,21 @@ test("Player.getFriends returns Array of friend uuid's", async () => {
 
 test('Player.recentlyPlayedGames returns Array of recently played games', async () => {
 	const player = await client.players.fetch('armc');
-	const games = player.recentlyPlayedGames;
+	const games = await player.recentlyPlayedGames;
 
 	expect(games).toBeInstanceOf(Array);
 });
 
 test('Player.status returns Object of player status', async () => {
 	const player = await client.players.fetch('armc');
-	const { status } = player;
+	const status = await player.status;
 
 	expect(status).toBeInstanceOf(Object);
 });
 
 test('Player.rankedSkywarsData returns Object of skywars data', async () => {
 	const player = await client.players.fetch('armc');
-	const data = player.rankedSkywarsData;
+	const data = await player.rankedSkywarsData;
 
 	expect(data).toBeInstanceOf(Object);
 });
