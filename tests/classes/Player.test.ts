@@ -25,7 +25,7 @@ test('Player.status returns Object of player status', async () => {
 });
 
 test('Player.rankedSkywarsData returns Object of skywars data', async () => {
-	const player = await client.players.fetch('armc');
+	const player = await client.players.fetch('lifelong');
 	const data = await player.rankedSkywarsData;
 
 	expect(data).toBeInstanceOf(Object);
