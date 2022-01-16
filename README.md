@@ -25,7 +25,7 @@ hypixel.ts is a [NodeJS](https://nodejs.org) module which allows you to interact
 
 **Node.js 14+ or newer is required**
 
-```sh-session
+```bash
 npm install hypixel.ts
 yarn add hypixel.ts
 pnpm add hypixel.ts

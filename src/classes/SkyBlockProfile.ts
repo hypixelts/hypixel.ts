@@ -1,6 +1,5 @@
 import { BaseClass } from './Base';
 import type { Client } from '../lib';
-
 export interface APISkyBlockProfile {
 	profile_id: string;
 	members: Record<string, any>;
@@ -10,6 +9,10 @@ export interface APISkyBlockProfile {
 	game_mode: string;
 }
 
+/**
+ * Represents a SkyBlock profile.
+ * @extends {BaseClass}
+ */
 export class SkyBlockProfile extends BaseClass {
 	public profile_id!: string;
 	public members!: Record<string, any>;
