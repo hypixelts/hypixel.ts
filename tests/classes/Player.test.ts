@@ -1,0 +1,32 @@
+import { Client } from '../../src';
+import { test, expect } from 'vitest';
+
+const client = new Client(process.env.HYPIXEL_API_KEY!);
+
+test("Player.getFriends returns Array of friend uuid's", async () => {
+	const player = await client.players.fetch('armc');
+	const friends = await player.getFriends();
+
+	expect(friends).toBeInstanceOf(Array);
+});
+
+test('Player.recentlyPlayedGames returns Array of recently played games', async () => {
+	const player = await client.players.fetch('armc');
+	const games = player.recentlyPlayedGames;
+
+	expect(games).toBeInstanceOf(Array);
+});
+
+test('Player.status returns Object of player status', async () => {
+	const player = await client.players.fetch('armc');
+	const { status } = player;
+
+	expect(status).toBeInstanceOf(Object);
+});
+
+test('Player.rankedSkywarsData returns Object of skywars data', async () => {
+	const player = await client.players.fetch('armc');
+	const data = player.rankedSkywarsData;
+
+	expect(data).toBeInstanceOf(Object);
+});
