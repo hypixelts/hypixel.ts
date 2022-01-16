@@ -71,11 +71,15 @@ export class Player extends BaseClass {
 		return this.client.players.getFriends(this.uuid, raw);
 	}
 
-	public async getRecentlyPlayedGames() {
+	public get recentlyPlayedGames() {
 		return this.client.players.getRecentlyPlayedGames(this.uuid);
 	}
 
-	public async getStatus() {
+	public get status() {
 		return this.client.players.getStatus(this.uuid);
+	}
+
+	public get rankedSkywarsData() {
+		return this.client.players.getRankedSkywarsData(this.uuid);
 	}
 }
