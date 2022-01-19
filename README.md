@@ -1,6 +1,6 @@
 <div align="center">
 
-![banner](https://i.imgur.com/QaYWxrM.png)
+![banner](https://i.imgur.com/FYGGv8l.png)
 
 ## **An easy to use [Hypixel API](https://api.hypixel.net) wrapper.**
 
@@ -55,8 +55,8 @@ client.skyblock.getProfile('lifelong').then(console.log);
 
 ## Links
 
--   Documentation - Coming Soon
--   [Discord Server](https://discord.gg/DDTmaeYUMF)
+-   [Documentation](https://hypixel.js.org/)
+-   [Discord Server](https://hypixel.js.org/discord)
 -   [Github](https://github.com/FC5570/hypixel.ts)
 -   [npm](https://npmjs.com/package/hypixel.ts)
 
