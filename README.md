@@ -56,7 +56,7 @@ client.skyblock.getProfile('lifelong').then(console.log);
 ## Links
 
 -   [Documentation](https://hypixel.js.org/)
--   [Discord Server](https://hypixel.js.org/discord)
+-   [Discord Server](https://discord.gg/DDTmaeYUMF)
 -   [Github](https://github.com/FC5570/hypixel.ts)
 -   [npm](https://npmjs.com/package/hypixel.ts)
 
