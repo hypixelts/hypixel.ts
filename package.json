@@ -1,8 +1,8 @@
 {
 	"name": "hypixel.ts",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "A simple, easy to use wrapper for Hypixel API.",
-	"homepage": "https://hypixel.js.org",
+	"homepage": "https://hypixel.js.org/",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"author": "FC5570",
