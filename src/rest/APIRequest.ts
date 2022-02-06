@@ -1,10 +1,9 @@
 import petitio, { PetitioResponse } from 'petitio';
-import { HypixelJSError } from '../errors';
-import type { Client } from '../lib';
-import type { RestManager } from './RestManager';
-import type { RequestData, ExtendedRequestData } from '../lib/util';
-import type { methods } from './APIRouter';
+import { HypixelTSError } from '../errors';
+import type { RestManager } from '.';
+import type { Client, RequestData, ExtendedRequestData } from '../lib';
 import type { HeadersInit } from '../typings';
+
 export interface APIRequest {
 	rest: RestManager;
 	method: string;
@@ -15,7 +14,37 @@ export interface APIRequest {
 }
 
 export class APIRequest {
-	public constructor(rest: RestManager, method: methods, path: string, options: ExtendedRequestData<unknown, unknown>) {
+	/**
+	 * The rest manager
+	 */
+	public rest: RestManager;
+
+	/**
+	 * The HTTP method of the request.
+	 */
+	public method: string;
+
+	/**
+	 * The path of the request.
+	 */
+	public path: string;
+
+	/**
+	 * Additional data, such as body and query parameters.
+	 */
+	public options: RequestData<unknown, unknown>;
+
+	/**
+	 * The route of the request.
+	 */
+	public route: string;
+
+	/**
+	 * The instantiated client.
+	 */
+	public client: Client;
+
+	public constructor(rest: RestManager, method: string, path: string, options: ExtendedRequestData<unknown, unknown>) {
 		this.rest = rest;
 		this.method = method;
 		this.path = path;
@@ -33,11 +62,15 @@ export class APIRequest {
 		}
 	}
 
+	/**
+	 * Makes a request to the API.
+	 * @returns {Promise<PetitioResponse>}
+	 */
 	public async make(): Promise<PetitioResponse> {
 		const { apiKey } = this.client;
 
 		const headers: HeadersInit = {};
-		if (!apiKey) throw new HypixelJSError('CLIENT_OPTION_MISSING', 'apiKey');
+		if (!apiKey) throw new HypixelTSError('CLIENT_OPTION_MISSING', 'apiKey');
 		headers['API-Key'] = apiKey;
 
 		let body = {};

@@ -1,6 +1,6 @@
 {
 	"name": "hypixel.ts",
-	"version": "1.0.8",
+	"version": "1.1.0",
 	"description": "A simple, easy to use wrapper for Hypixel API.",
 	"homepage": "https://hypixel.js.org/",
 	"main": "dist/index.js",
@@ -63,6 +63,14 @@
 		"hypixel.js",
 		"hypixel.ts"
 	],
+	"files": [
+		"dist/",
+		"*.md",
+		"!README.md"
+	],
+	"lint-staged": {
+		"*.{ts,js}": "yarn lint"
+	},
 	"packageManager": "yarn@3.1.1",
 	"prettier": "@sapphire/prettier-config"
 }

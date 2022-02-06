@@ -1,11 +1,10 @@
-import type { RestManager } from './RestManager';
+import type { RestManager } from '.';
 import type { RequestData } from '../lib/util';
 
 /* eslint-disable */
 const noop = () => {};
-const methods = ['get'];
-export type methods = 'get';
 const reflectors = ['toString'];
+const methods = ['get'];
 
 export function buildRoute(manager: RestManager): any {
 	const path = [''];
@@ -13,16 +12,20 @@ export function buildRoute(manager: RestManager): any {
 		// @ts-ignore
 		get(target: any, property: methods): any {
 			if (reflectors.includes(property)) return () => path.join('/');
+
 			if (methods.includes(property)) {
 				const routeBucket: Array<string> = [];
 				let currentDirectory: string;
+
 				for (let i = 0; i < path.length; i++) {
 					currentDirectory = path[i];
 					routeBucket.push(currentDirectory);
 				}
+
 				return (options: RequestData<unknown, unknown>) =>
 					manager.request(property, path.join('/'), Object.assign({ route: routeBucket.join('/') }, options));
 			}
+
 			path.push(property);
 			return new Proxy(noop, handler);
 		},

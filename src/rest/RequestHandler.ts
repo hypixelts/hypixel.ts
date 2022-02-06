@@ -1,11 +1,15 @@
 import { AsyncQueue } from '@sapphire/async-queue';
-import { HypixelAPIError, HypixelAPIErrorResponse } from './HypixelAPIError';
-import { parseResponse } from '../lib/util';
-import type { APIRequest } from './APIRequest';
-import type { RestManager } from './RestManager';
+import { HypixelAPIError, HypixelAPIErrorResponse, type APIRequest, type RestManager } from '.';
 
 export class RequestHandler {
+	/**
+	 * The rest manager.
+	 */
 	public manager: RestManager;
+
+	/**
+	 * The queue the requests are pushed to.
+	 */
 	public queue: AsyncQueue;
 
 	public constructor(manager: RestManager) {
@@ -13,6 +17,10 @@ export class RequestHandler {
 		this.queue = new AsyncQueue();
 	}
 
+	/**
+	 * Pushes the request to the queue and executes it.
+	 * @param {APIRequest} request: The request to execute.
+	 */
 	public async push(request: APIRequest) {
 		await this.queue.wait();
 		try {
@@ -22,11 +30,15 @@ export class RequestHandler {
 		}
 	}
 
+	/**
+	 * Executes a request.
+	 * @param {APIRequest} request: The request to execute.
+	 */
 	public async execute(request: APIRequest) {
 		const res = await request.make();
-		if (res.statusCode! <= 400) return parseResponse(res);
+		if (res.statusCode! <= 400) return res.json();
 
-		const apiError = (await parseResponse(res)) as unknown as HypixelAPIErrorResponse;
+		const apiError = (await res.json()) as HypixelAPIErrorResponse;
 		throw new HypixelAPIError(apiError.cause, res.statusCode!);
 	}
 }

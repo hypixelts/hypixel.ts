@@ -1,4 +1,4 @@
-import { register } from './HypixelJSError';
+import { register } from './HypixelTSError';
 
 const messages = {
 	CLIENT_OPTIONS_MISSING: (option: string) => `ClientOptions.${option} is missing`,

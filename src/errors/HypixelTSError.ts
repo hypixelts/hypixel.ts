@@ -2,7 +2,7 @@ type ErrorMessageSupplier = (...args: any[]) => string;
 
 const messages = new Map<string, string | ErrorMessageSupplier>();
 
-export class HypixelJSError extends Error {
+export class HypixelTSError extends Error {
 	public constructor(key: string, ...args: any[]) {
 		super(getMessage(key, args));
 
