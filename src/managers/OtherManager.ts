@@ -1,4 +1,4 @@
-import { BaseManager } from './BaseManager';
+import { BaseManager } from '.';
 import type { Client } from '../lib';
 import type { GetActiveBoostersResponse, GetPlayerCountResponse, GetPunishmentStatisticsResponse } from '../typings';
 

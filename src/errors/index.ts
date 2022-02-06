@@ -1,2 +1,2 @@
-export * from './HypixelJSError';
+export * from './HypixelTSError';
 export * from './Messages';

@@ -1,9 +1,6 @@
 import { Collection } from '@discordjs/collection';
-import { buildRoute, methods } from './APIRouter';
-import { APIRequest } from './APIRequest';
-import { RequestHandler } from './RequestHandler';
-import type { Client } from '../lib';
-import type { ExtendedRequestData } from '../lib/util';
+import { APIRequest, RequestHandler, buildRoute } from '.';
+import type { Client, ExtendedRequestData } from '../lib';
 
 /**
  * Manager class for the rest API
@@ -38,7 +35,7 @@ export class RestManager {
 		return buildRoute(this);
 	}
 
-	public async request(method: methods, path: string, options: ExtendedRequestData<unknown, unknown>) {
+	public async request(method: string, path: string, options: ExtendedRequestData<unknown, unknown>) {
 		const apiRequest = new APIRequest(this, method, path, options);
 		let handler = this.requestHandlers.get(apiRequest.route);
 		if (!handler) {

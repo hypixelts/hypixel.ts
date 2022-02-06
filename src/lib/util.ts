@@ -1,14 +1,3 @@
-import type { PetitioResponse } from 'petitio';
-
-/**
- * Parses an API response and returns the body
- * @param res The response sent by the API
- * @returns The body of the response
- */
-export async function parseResponse(res: PetitioResponse): Promise<Record<string, unknown>> {
-	return res.json();
-}
-
 export interface RequestDataOptions<Q, B> {
 	/**
 	 * The query for the request

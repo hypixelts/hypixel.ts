@@ -6,11 +6,10 @@ import type { Client } from '../lib';
 export class BaseManager {
 	/**
 	 * The client that instantiated this manager.
-	 * @type {Client}
 	 * @readonly
 	 */
-	public client: Client;
+	public client!: Client;
 	public constructor(client: Client) {
-		this.client = client;
+		Object.defineProperty(this, 'client', { value: client, enumerable: false });
 	}
 }

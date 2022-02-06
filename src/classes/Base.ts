@@ -1,4 +1,4 @@
-import type { Client } from '../lib/Client';
+import type { Client } from '../lib';
 
 /**
  * The base class which other classes extend from.

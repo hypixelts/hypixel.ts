@@ -1,6 +1,6 @@
-import { BaseClass } from './Base';
+import { BaseClass } from '.';
 import petitio from 'petitio';
-import { HypixelJSError } from '../errors';
+import { HypixelTSError } from '../errors';
 import type { Client } from '../lib';
 import type { GetUUIDResponse } from '../typings';
 
@@ -22,11 +22,11 @@ export class Util extends BaseClass {
 			const data = await petitio(`https://api.mojang.com/users/profiles/minecraft/${name}`).send();
 			const json = (await data.json()) as GetUUIDResponse;
 
-			if (json.error) throw new HypixelJSError('GET_UUID_ERROR', json.error, data.statusCode);
+			if (json.error) throw new HypixelTSError('GET_UUID_ERROR', json.error, data.statusCode);
 
 			return json.id;
 		} catch {
-			throw new HypixelJSError('GET_UUID_404');
+			throw new HypixelTSError('GET_UUID_404');
 		}
 	}
 

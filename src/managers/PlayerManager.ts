@@ -1,7 +1,6 @@
-import { BaseManager } from './BaseManager';
+import { BaseManager } from '.';
 import { Player } from '../classes';
-import { RequestData } from '../lib/util';
-import type { Client } from '../lib';
+import { RequestData, type Client } from '../lib';
 import type { GetPlayerFriendsRawResponse, GetRecentlyPlayedGamesResponse, GetStatusResponse, GetRankedSkywarsDataResponse } from '../typings';
 
 /**

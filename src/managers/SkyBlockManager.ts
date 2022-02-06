@@ -1,5 +1,5 @@
-import { BaseManager } from './BaseManager';
-import type { Client } from '../lib';
+import { BaseManager } from '.';
+import { RequestData, type Client } from '../lib';
 import type {
 	CollectionInformationResponse,
 	SkillsInformationResponse,
@@ -11,7 +11,6 @@ import type {
 	BaazarResponse,
 	GetAuctionType
 } from '../typings';
-import { RequestData } from '../lib/util';
 import { SkyBlockProfile } from '../classes';
 
 /**

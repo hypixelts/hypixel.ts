@@ -1,4 +1,4 @@
-import { BaseClass } from './Base';
+import { BaseClass } from '.';
 import type { Client } from '../lib';
 import type { APIPlayer } from '../typings';
 

@@ -1,5 +1,6 @@
 import { BaseClass } from './Base';
 import type { Client } from '../lib';
+
 export interface APISkyBlockProfile {
 	profile_id: string;
 	members: Record<string, any>;
