@@ -13,3 +13,9 @@ test('Util.isUUID matches UUID Regex', () => {
 	const regex = /^[0-9a-f]{32}$/i;
 	expect(uuid).toMatch(regex);
 });
+
+test('Util.getUsername to be the correct Username', async () => {
+	const username = await client.util.getUsername('5de3d1d5-1a95-4fb3-a2b7-88e4938ae11c');
+
+	expect(username).toBe('Thorin');
+});
