@@ -36,6 +36,10 @@ export class Util extends BaseClass {
 	 * @returns {Promise<string>}
 	 */
 	 public async getUsername(uuid: string) {
+		if (!this.isUUID(uuid)) {
+			throw new HypixelTSError('NOT_UUID');
+		}
+
 		try {
 			const data = await petitio(`https://api.mojang.com/user/profile/${uuid}`).send();
 			const json = (await data.json()) as GetUsernameResponse;
