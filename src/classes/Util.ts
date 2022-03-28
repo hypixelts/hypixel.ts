@@ -31,19 +31,9 @@ export class Util extends BaseClass {
 	}
 
 	/**
-	 * Check whether the provided UUID is a valid UUID or not.
-	 * @param {string} uuid: The UUID to check
-	 * @returns {boolean}
-	 */
-	public isUUID(uuid: string) {
-		const regex = /^[0-9a-f]{32}$/i;
-		return regex.test(uuid);
-	}
-
-	/**
 	 * Get player's name from their UUID
 	 */
-	public async getUsername(uuid: string) {
+	 public async getUsername(uuid: string) {
 		try {
 			const data = await petitio(`https://api.mojang.com/user/profile/${uuid}`).send();
 			const json = (await data.json()) as GetUsernameResponse;
@@ -54,5 +44,15 @@ export class Util extends BaseClass {
 		} catch {
 			throw new HypixelTSError('GET_USERNAME_404');
 		}
+	}
+
+	/**
+	 * Check whether the provided UUID is a valid UUID or not.
+	 * @param {string} uuid: The UUID to check
+	 * @returns {boolean}
+	 */
+	public isUUID(uuid: string) {
+		const regex = /^[0-9a-f]{32}$/i;
+		return regex.test(uuid);
 	}
 }
