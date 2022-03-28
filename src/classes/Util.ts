@@ -32,6 +32,8 @@ export class Util extends BaseClass {
 
 	/**
 	 * Get player's name from their UUID
+	 * @param {string} uuid: The uuid of the player
+	 * @returns {Promise<string>}
 	 */
 	 public async getUsername(uuid: string) {
 		try {
