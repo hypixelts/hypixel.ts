@@ -58,7 +58,8 @@ export class Util extends BaseClass {
 	 * @returns {boolean}
 	 */
 	public isUUID(uuid: string) {
-		const regex = /^[0-9a-f]{32}$/i;
-		return regex.test(uuid);
+		const regexStripped = /^[0-9a-f]{32}$/i;
+		const regexFull = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+		return regexStripped.test(uuid) || regexFull.test(uuid);
 	}
 }
