@@ -1,6 +1,11 @@
 name: Continuous Integration
 on:
   pull_request_target:
+    branches:
+      - main
+  push:
+    branches:
+      - main
 jobs:
   Continuous-integration:
     runs-on: ubuntu-latest
