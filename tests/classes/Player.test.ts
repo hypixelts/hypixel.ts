@@ -24,6 +24,20 @@ test('Player.status returns Object of player status', async () => {
 	expect(status).toBeInstanceOf(Object);
 });
 
+test('Player.name returns the correct name', async () => {
+	const playerName = 'Thorin'
+	const player = await client.players.fetch(playerName);
+
+	expect(player.playername).toBe(playerName.toLowerCase());
+});
+
+test('Player.uuid returns the correct uuid', async () => {
+	const playerUUID = await client.util.getUUID('Thorin');
+	const player = await client.players.fetch(playerUUID);
+
+	expect(player.uuid).toBe(playerUUID);
+})
+
 test('Player.rankedSkywarsData returns Object of skywars data', async () => {
 	const player = await client.players.fetch('lifelong');
 	const data = await player.rankedSkywarsData;
