@@ -17,9 +17,9 @@
 
 hypixel.ts is a [NodeJS](https://nodejs.org) module which allows you to interact with the [Hypixel API](https://api.hypixel.net) easily.
 
--   Written in Typescript
--   CommonJS, ESM support
--   100% coverage of Hypixel API
+- Written in Typescript
+- CommonJS, ESM support
+- 100% coverage of Hypixel API
 
 ## Installation
 
@@ -53,12 +53,23 @@ const client = new Client('API_KEY');
 client.skyblock.getProfile('lifelong').then(console.log);
 ```
 
+The function is fully asynchronous:
+
+```typescript
+import { Client } from 'hypixel.ts';
+
+const client = new Client('API_KEY');
+
+const player = await client.players.fetch(args[0]);
+console.log(player.displayname);
+```
+
 ## Links
 
--   [Documentation](https://hypixel.js.org/)
--   [Discord Server](https://discord.gg/DDTmaeYUMF)
--   [Github](https://github.com/FC5570/hypixel.ts)
--   [npm](https://npmjs.com/package/hypixel.ts)
+- [Documentation](https://hypixel.js.org/)
+- [Discord Server](https://discord.gg/DDTmaeYUMF)
+- [Github](https://github.com/FC5570/hypixel.ts)
+- [npm](https://npmjs.com/package/hypixel.ts)
 
 ## Help
 
