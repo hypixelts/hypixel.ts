@@ -68,7 +68,7 @@ console.log(player.displayname);
 
 - [Documentation](https://hypixel.js.org/)
 - [Discord Server](https://discord.gg/DDTmaeYUMF)
-- [Github](https://github.com/FC5570/hypixel.ts)
+- [GitHub](https://github.com/FC5570/hypixel.ts)
 - [npm](https://npmjs.com/package/hypixel.ts)
 
 ## Help
