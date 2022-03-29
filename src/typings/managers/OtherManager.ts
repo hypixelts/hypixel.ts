@@ -32,3 +32,12 @@ export interface GetPunishmentStatisticsResponse {
 	watchdog_rollingDaily: number;
 	staff_total: number;
 }
+
+export interface GetAPIKeyInformationResponse {
+	key: string;
+	owner: string;
+	limit: number;
+	queriesInPastMin: number;
+	totalQueries: number;
+	error?: string;
+}

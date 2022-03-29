@@ -1,6 +1,6 @@
 import { BaseManager } from '.';
 import type { Client } from '../lib';
-import type { GetActiveBoostersResponse, GetPlayerCountResponse, GetPunishmentStatisticsResponse } from '../typings';
+import type { GetActiveBoostersResponse, GetAPIKeyInformationResponse, GetPlayerCountResponse, GetPunishmentStatisticsResponse } from '../typings';
 
 /**
  * The manager for other API endpoints.
@@ -50,5 +50,13 @@ export class OtherManager extends BaseManager {
 		const { watchdog_lastMinute, staff_rollingDaily, watchdog_total, watchdog_rollingDaily, staff_total } =
 			await this.client.api.punishmentstats.get();
 		return { watchdog_lastMinute, staff_rollingDaily, watchdog_total, watchdog_rollingDaily, staff_total };
+	}
+
+	/**
+	 * Get API Key Information
+	 * @returns {Promise<GetAPIKeyInformationResponse>}
+	 */
+	public async getAPIKeyInformation(): Promise<GetAPIKeyInformationResponse> {
+		return (await this.client.api.key.get())['record'] as GetAPIKeyInformationResponse;
 	}
 }
