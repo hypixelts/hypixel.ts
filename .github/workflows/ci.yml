@@ -25,7 +25,7 @@ jobs:
         run: yarn lint
 
       - name: Test
-        run: yarn test
+        run: yarn coverage
         env:
           HYPIXEL_API_KEY: ${{ secrets.HYPIXEL_API_KEY }}
 
