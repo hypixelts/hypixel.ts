@@ -14,15 +14,15 @@
 		}
 	},
 	"scripts": {
-		"gen-esm": "yarn gen-esm-wrapper dist/index.js dist/index.mjs",
-		"build": "yarn tsc -b src",
-		"lint": "yarn eslint --fix src --ext .ts",
-		"format": "yarn prettier --write .",
-		"tests": "yarn vitest",
-		"coverage": "yarn vitest --coverage",
-		"prepare": "yarn husky install",
-		"prepublish": "yarn build && yarn gen-esm",
-		"update": "yarn upgrade-interactive --latest"
+		"gen-esm": "gen-esm-wrapper dist/index.js dist/index.mjs",
+		"build": "tsc -b src",
+		"lint": "eslint --fix src --ext .ts",
+		"format": "prettier --write .",
+		"tests": "vitest",
+		"coverage": "vitest --coverage",
+		"prepare": "husky install",
+		"prepublish": "npm run build && npm run gen-esm",
+		"update": "upgrade-interactive --latest"
 	},
 	"dependencies": {
 		"@discordjs/collection": "^0.4.0",
@@ -73,7 +73,7 @@
 		"!README.md"
 	],
 	"lint-staged": {
-		"*.{ts,js}": "yarn lint"
+		"*.{ts,js}": "lint"
 	},
 	"packageManager": "yarn@3.1.1",
 	"prettier": "@sapphire/prettier-config"

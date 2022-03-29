@@ -19,15 +19,15 @@ jobs:
 
       - name: Install Dependencies if Cache Miss
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
-        run: yarn --immutable
+        run: npm run --immutable
 
       - name: Check Liniting
-        run: yarn lint
+        run: npm run lint
 
       - name: Test
-        run: yarn coverage
+        run: npm run coverage
         env:
           HYPIXEL_API_KEY: ${{ secrets.HYPIXEL_API_KEY }}
 
       - name: Build
-        run: yarn build
+        run: npm run build
