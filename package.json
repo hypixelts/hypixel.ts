@@ -18,7 +18,7 @@
 		"build": "yarn tsc -b src",
 		"lint": "yarn eslint src --ext .ts",
 		"lint:fix": "yarn eslint --fix src --ext .ts",
-		"format": "yarn prettier --write .",
+		"format": "yarn prettier --write src",
 		"tests": "yarn vitest",
 		"coverage": "yarn vitest --coverage",
 		"prepare": "yarn husky install",
