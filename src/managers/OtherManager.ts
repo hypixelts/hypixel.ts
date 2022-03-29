@@ -57,6 +57,6 @@ export class OtherManager extends BaseManager {
 	 * @returns {Promise<GetAPIKeyInformationResponse>}
 	 */
 	public async getAPIKeyInformation(): Promise<GetAPIKeyInformationResponse> {
-		return (await this.client.api.key.get())['record'] as GetAPIKeyInformationResponse;
+		return (await this.client.api.key.get()).record as GetAPIKeyInformationResponse;
 	}
 }
