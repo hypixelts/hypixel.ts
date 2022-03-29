@@ -22,3 +22,21 @@ test('OtherManager.getPunishmentStatistics is instance of Object', async () => {
 	const punishmentstats = await client.other.getPunishmentStatistics();
 	expect(punishmentstats).toBeInstanceOf(Object);
 });
+
+test('OtherManager.getAPIKeyInformation is instance of Object', async () => {
+	const keyInformation = await client.other.getAPIKeyInformation();
+
+	expect(keyInformation).toBeInstanceOf(Object);
+});
+
+test('OtherManager.getAPIKeyInformation returning the correct key', async () => {
+	const keyInformation = await client.other.getAPIKeyInformation();
+
+	expect(keyInformation.key).toBe(client.apiKey);
+});
+
+test('OtherManager.getAPIKeyInformation should return type number', async () => {
+	const keyInformation = await client.other.getAPIKeyInformation();
+
+	expect(typeof keyInformation.queriesInPastMin).toBe("number");
+});

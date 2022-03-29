@@ -3,3 +3,9 @@ export interface GetUUIDResponse {
 	id: string;
 	error?: string;
 }
+
+export interface GetUsernameResponse {
+	name: string;
+	uuid: string;
+	error?: string;
+}

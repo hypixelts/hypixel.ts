@@ -18,7 +18,7 @@
 		"build": "yarn tsc -b src",
 		"lint": "yarn eslint --fix src --ext .ts",
 		"format": "yarn prettier --write .",
-		"test": "yarn vitest",
+		"tests": "yarn vitest",
 		"coverage": "yarn vitest --coverage",
 		"prepare": "yarn husky install",
 		"prepublish": "yarn build && yarn gen-esm",
@@ -39,6 +39,7 @@
 		"@types/eslint": "^8",
 		"@types/node": "^17.0.8",
 		"@types/prettier": "^2",
+		"@types/uuid": "^8",
 		"@typescript-eslint/eslint-plugin": "^5.9.1",
 		"@typescript-eslint/parser": "^5.9.1",
 		"c8": "^7.11.0",
@@ -49,7 +50,8 @@
 		"prettier": "^2.5.1",
 		"typedoc": "^0.22.10",
 		"typescript": "^4.5.4",
-		"vitest": "^0.0.141"
+		"vitest": "^0.0.141",
+		"uuid": "^8.3.2"
 	},
 	"repository": {
 		"type": "git",
