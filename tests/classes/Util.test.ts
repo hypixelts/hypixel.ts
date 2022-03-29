@@ -8,10 +8,16 @@ test('Util.getUUID to be correct UUID', async () => {
 	expect(status).toBe('ab589c4ed6804cd1b5ff3259980fb633');
 });
 
-test('Util.isUUID matches UUID Regex', () => {
+test('Util.isUUID matches UUID Regex (Stripped)', () => {
 	const uuid = 'ab589c4ed6804cd1b5ff3259980fb633';
-	const regex = /^[0-9a-f]{32}$/i;
-	expect(uuid).toMatch(regex);
+
+	expect(client.util.isUUID(uuid)).toBeTruthy();
+});
+
+test('Util.isUUID matches UUID Regex (Full)', () => {
+	const uuid = '5de3d1d5-1a95-4fb3-a2b7-88e4938ae11c';
+
+	expect(client.util.isUUID(uuid)).toBeTruthy();
 });
 
 test('Util.getUsername to be the correct Username', async () => {
