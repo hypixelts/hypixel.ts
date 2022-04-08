@@ -16,7 +16,7 @@
 	"scripts": {
 		"gen-esm": "gen-esm-wrapper dist/index.js dist/index.mjs",
 		"build": "tsc -b src",
-		"lint": "eslint --fix src --ext .ts",
+		"lint": "eslint src --ext .ts",
 		"format": "prettier --write .",
 		"tests": "vitest",
 		"coverage": "vitest --coverage",
