@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: CI
 on:
   pull_request_target:
   push:
@@ -6,23 +6,15 @@ jobs:
   Continuous-integration:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
+      - uses: actions/checkout@v2
       - name: Use Node.js
-        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561 # renovate: tag=v2
+        uses: actions/setup-node@v2
         with:
           node-version: 16
-      - name: Restore CI Cache
-        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # renovate: tag=v2.1.7
-        id: cache-restore
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Install Dependencies if Cache Miss
-        if: ${{ !steps.cache-restore.outputs.cache-hit }}
+      - name: Install Dependencies
         run: npm run --immutable
 
-      - name: Check Liniting
+      - name: Check Linting
         run: npm run lint
 
       - name: Test
