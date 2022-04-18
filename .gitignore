@@ -11,3 +11,5 @@ dist/
 !src/**/*.d.ts
 **/*.tsbuildinfo
 !vitest.config.ts
+
+coverage/

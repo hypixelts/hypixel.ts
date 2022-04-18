@@ -35,7 +35,7 @@ export class Util extends BaseClass {
 	 * @param {string} uuid: The uuid of the player
 	 * @returns {Promise<string>}
 	 */
-	 public async getUsername(uuid: string) {
+	public async getUsername(uuid: string) {
 		if (!this.isUUID(uuid)) {
 			throw new HypixelTSError('NOT_UUID');
 		}
