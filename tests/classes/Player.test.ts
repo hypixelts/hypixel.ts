@@ -3,13 +3,6 @@ import { test, expect } from 'vitest';
 
 const client = new Client(process.env.HYPIXEL_API_KEY!);
 
-test("Player.getFriends returns Array of friend uuid's", async () => {
-	const player = await client.players.fetch('Thorin');
-	const friends = await player.getFriends();
-
-	expect(friends).toBeInstanceOf(Array);
-});
-
 test('Player.recentlyPlayedGames returns Array of recently played games', async () => {
 	const player = await client.players.fetch('Thorin');
 	const games = await player.recentlyPlayedGames;
