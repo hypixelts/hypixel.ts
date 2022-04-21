@@ -4,28 +4,28 @@ import { test, expect } from 'vitest';
 const client = new Client(process.env.HYPIXEL_API_KEY!);
 
 test("Player.getFriends returns Array of friend uuid's", async () => {
-	const player = await client.players.fetch('armc');
+	const player = await client.players.fetch('Thorin');
 	const friends = await player.getFriends();
 
 	expect(friends).toBeInstanceOf(Array);
 });
 
 test('Player.recentlyPlayedGames returns Array of recently played games', async () => {
-	const player = await client.players.fetch('armc');
+	const player = await client.players.fetch('Thorin');
 	const games = await player.recentlyPlayedGames;
 
 	expect(games).toBeInstanceOf(Array);
 });
 
 test('Player.status returns Object of player status', async () => {
-	const player = await client.players.fetch('armc');
+	const player = await client.players.fetch('Thorin');
 	const status = await player.status;
 
 	expect(status).toBeInstanceOf(Object);
 });
 
 test('Player.name returns the correct name', async () => {
-	const playerName = 'Thorin'
+	const playerName = 'Thorin';
 	const player = await client.players.fetch(playerName);
 
 	expect(player.playername).toBe(playerName.toLowerCase());
@@ -36,7 +36,7 @@ test('Player.uuid returns the correct uuid', async () => {
 	const player = await client.players.fetch(playerUUID);
 
 	expect(player.uuid).toBe(playerUUID);
-})
+});
 
 test('Player.rankedSkywarsData returns Object of skywars data', async () => {
 	const player = await client.players.fetch('lifelong');
