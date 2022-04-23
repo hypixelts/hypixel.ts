@@ -5,8 +5,8 @@ import { v4 } from 'uuid';
 const client = new Client(process.env.HYPIXEL_API_KEY!);
 
 test('Util.getUUID to be correct UUID', async () => {
-	const status = await client.players.getUUID('armc');
-	expect(status).toBe('ab589c4ed6804cd1b5ff3259980fb633');
+	const status = await client.players.getUUID('Thorin');
+	expect(status).toBe('5de3d1d51a954fb3a2b788e4938ae11c');
 });
 
 test('Util.isUUID matches UUID Regex', () => {

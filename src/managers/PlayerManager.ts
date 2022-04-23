@@ -50,10 +50,10 @@ export class PlayerManager extends BaseManager {
 				const player = await this.fetch(friend.uuidReceiver);
 				array.push(player);
 			}
-			return array;
+			return array as Player[];
 		}
 
-		return friends?.records ?? [];
+		return (friends?.records as GetPlayerFriendsRawResponse) ?? [];
 	}
 
 	/**
