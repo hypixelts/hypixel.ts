@@ -1,6 +1,6 @@
 {
 	"name": "hypixel.ts",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "A simple, easy to use wrapper for Hypixel API.",
 	"homepage": "https://hypixel.js.org/",
 	"main": "dist/index.js",
@@ -21,7 +21,7 @@
 		"tests": "yarn vitest",
 		"coverage": "yarn vitest --coverage",
 		"prepare": "yarn husky install",
-		"prepublish": "yarn build && yarn gen-esm",
+		"prepublishOnly": "yarn build && yarn gen-esm",
 		"update": "yarn upgrade-interactive --latest"
 	},
 	"dependencies": {
