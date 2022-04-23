@@ -38,5 +38,5 @@ test('OtherManager.getAPIKeyInformation returning the correct key', async () => 
 test('OtherManager.getAPIKeyInformation should return type number', async () => {
 	const keyInformation = await client.other.getAPIKeyInformation();
 
-	expect(typeof keyInformation.queriesInPastMin).toBe("number");
+	expect(typeof keyInformation.queriesInPastMin).toBe('number');
 });
