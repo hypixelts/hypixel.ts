@@ -20,9 +20,3 @@ export interface GetStatusResponse {
 	mode: string;
 	map: string;
 }
-
-export interface GetRankedSkywarsDataResponse {
-	key: string;
-	position: number;
-	score: number;
-}

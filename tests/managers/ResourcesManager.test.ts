@@ -1,7 +1,7 @@
 import { Client } from '../../src';
 import { test, expect } from 'vitest';
 
-const client = new Client(process.env.HYPIXEL_API_KEY!);
+const client = new Client(process.env.VITE_HYPIXEL_API_KEY!);
 
 test('ResourcesManager.gameInfo is instance of Object', async () => {
 	const games = await client.resources.gameInfo();

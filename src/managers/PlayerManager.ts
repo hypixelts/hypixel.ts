@@ -1,7 +1,7 @@
 import { BaseManager } from '.';
 import { Player } from '../classes';
 import { RequestData, type Client } from '../lib';
-import type { GetPlayerFriendsRawResponse, GetRecentlyPlayedGamesResponse, GetStatusResponse, GetRankedSkywarsDataResponse } from '../typings';
+import type { GetPlayerFriendsRawResponse, GetRecentlyPlayedGamesResponse, GetStatusResponse } from '../typings';
 
 /**
  * The manager for player related API endpoints.
@@ -82,20 +82,6 @@ export class PlayerManager extends BaseManager {
 		const requestData = new RequestData({ query: { uuid } });
 		const { session } = await this.client.api.status.get(requestData);
 		return session;
-	}
-
-	/**
-	 * Get ranked skywars data of a player.
-	 * @param {string} nameOrUUID: The name or UUID of the player who's ranked skywars data you want to get.
-	 * @returns {Promise<GetRankedSkywarsDataResponse>}
-	 */
-	public async getRankedSkywarsData(nameOrUUID: string): Promise<GetRankedSkywarsDataResponse> {
-		const isUUID = this.client.util.isUUID(nameOrUUID);
-		const uuid = isUUID ? nameOrUUID : await this.getUUID(nameOrUUID);
-
-		const requestData = new RequestData({ query: { uuid } });
-		const { result } = await this.client.api.player.ranked.skywars.get(requestData);
-		return result;
 	}
 
 	/**

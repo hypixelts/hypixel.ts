@@ -14,3 +14,5 @@ docs/
 !vitest.config.ts
 
 coverage/
+
+.env*

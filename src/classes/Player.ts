@@ -97,10 +97,10 @@ export class Player extends BaseClass {
 	}
 
 	/**
-	 * Get the ranked skywars data of the player.
-	 * @returns {Promise<import('../typings').GetRankedSkywarsDataResponse>}
+	 * Get the guild of the player.
+	 * @returns {Promise<import('./Guild').Guild>}
 	 */
-	public get rankedSkywarsData() {
-		return this.client.players.getRankedSkywarsData(this.uuid);
+	public get guild() {
+		return this.client.guilds.fetch(this.uuid, 'player');
 	}
 }
