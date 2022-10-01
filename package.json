@@ -1,6 +1,6 @@
 {
 	"name": "hypixel.ts",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"description": "A simple, easy to use wrapper for Hypixel API.",
 	"homepage": "https://hypixel.js.org/",
 	"main": "dist/index.js",

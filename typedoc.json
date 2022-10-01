@@ -1,6 +1,6 @@
 {
 	"cleanOutputDir": true,
-	"emit": true,
+	"emit": "docs",
 	"entryPoints": ["src/index.ts"],
 	"excludeExternals": false,
 	"hideGenerator": true,

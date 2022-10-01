@@ -44,7 +44,7 @@ export class OtherManager extends BaseManager {
 
 	/**
 	 * Get the punishment statistics.
-	 * @returns {Promise<GetPunishmentStatisticsResponse>}}
+	 * @returns {Promise<GetPunishmentStatisticsResponse>}
 	 */
 	public async getPunishmentStatistics(): Promise<GetPunishmentStatisticsResponse> {
 		const { watchdog_lastMinute, staff_rollingDaily, watchdog_total, watchdog_rollingDaily, staff_total } =
