@@ -30,10 +30,3 @@ test('Player.uuid returns the correct uuid', async () => {
 
 	expect(player.uuid).toBe(playerUUID);
 });
-
-test('Player.rankedSkywarsData returns Object of skywars data', async () => {
-	const player = await client.players.fetch('lifelong');
-	const data = await player.rankedSkywarsData;
-
-	expect(data).toBeInstanceOf(Object);
-});

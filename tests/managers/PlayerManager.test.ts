@@ -24,11 +24,6 @@ test('PlayerManager.getStatus is instance of Object', async () => {
 	expect(status).toBeInstanceOf(Object);
 });
 
-test('PlayerManager.getRankedSkywarsData is instance of Object', async () => {
-	const status = await client.players.getRankedSkywarsData('lifelong');
-	expect(status).toBeInstanceOf(Object);
-});
-
 test('PlayerManager.getUUID returns correct UUID', async () => {
 	const status = await client.players.getUUID('Thorin');
 	expect(status).toBe('5de3d1d51a954fb3a2b788e4938ae11c');
