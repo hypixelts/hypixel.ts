@@ -2,7 +2,7 @@ import { Client } from '../../src';
 import { Player } from '../../src/classes';
 import { test, expect } from 'vitest';
 
-const client = new Client(process.env.HYPIXEL_API_KEY!);
+const client = new Client(process.env.VITE_HYPIXEL_API_KEY!);
 
 test('PlayerManager.fetch returns Player Object', async () => {
 	const player = await client.players.fetch('Thorin');

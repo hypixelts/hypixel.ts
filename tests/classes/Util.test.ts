@@ -2,7 +2,7 @@ import { Client } from '../../src';
 import { test, expect } from 'vitest';
 import { v4 } from 'uuid';
 
-const client = new Client(process.env.HYPIXEL_API_KEY!);
+const client = new Client(process.env.VITE_HYPIXEL_API_KEY!);
 
 test('Util.getUUID to be correct UUID', async () => {
 	const status = await client.players.getUUID('Thorin');

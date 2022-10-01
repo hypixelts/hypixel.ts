@@ -2,7 +2,7 @@ import { Client } from '../../src';
 import { SkyBlockProfile } from '../../src/classes';
 import { test, expect } from 'vitest';
 
-const client = new Client(process.env.HYPIXEL_API_KEY!);
+const client = new Client(process.env.VITE_HYPIXEL_API_KEY!);
 
 test('SkyBlockManager.collections is instance of Object', async () => {
 	const collections = await client.skyblock.collections();
