@@ -1,0 +1,10 @@
+{
+  "projectName": "hypixel.ts",
+  "projectOwner": "hypixelts",
+  "skipCi": true,
+  "files": [
+    "README.md"
+  ],
+  "commitConvention": "angular",
+  "contributorsPerLine": 7
+}
