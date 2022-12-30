@@ -6,5 +6,19 @@
     "README.md"
   ],
   "commitConvention": "angular",
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "contributors": [
+    {
+      "login": "FC5570",
+      "name": "FC",
+      "avatar_url": "https://avatars.githubusercontent.com/u/68158483?v=4",
+      "profile": "https://fc5570.me/",
+      "contributions": [
+        "code",
+        "ideas",
+        "maintenance",
+        "projectManagement"
+      ]
+    }
+  ]
 }
