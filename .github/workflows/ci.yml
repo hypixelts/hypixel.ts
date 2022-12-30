@@ -32,7 +32,7 @@ jobs:
         env:
           VITE_CLIENT_ID: '${{ secrets.CLIENT_ID }}'
           VITE_CLIENT_SECRET: '${{ secrets.CLIENT_SECRET }}'
-        run: yarn test
+        run: yarn test --coverage
 
       - name: Build Code
         run: yarn build
