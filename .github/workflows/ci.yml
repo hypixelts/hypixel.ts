@@ -31,7 +31,7 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         env:
           VITE_HYPIXEL_API_KEY: '${{ secrets.HYPIXEL_API_KEY }}'
-        run: yarn test --coverage
+        run: yarn coverage
 
       - name: Build Code
         run: yarn build
