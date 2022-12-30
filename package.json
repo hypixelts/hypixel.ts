@@ -77,6 +77,11 @@
 	"lint-staged": {
 		"*.{ts,js}": "yarn lint"
 	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
 	"packageManager": "yarn@3.3.1",
 	"prettier": "@sapphire/prettier-config"
 }
