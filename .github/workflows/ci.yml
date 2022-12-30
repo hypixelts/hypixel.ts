@@ -30,8 +30,7 @@ jobs:
       - name: Run Tests
         if: ${{ github.event_name == 'push' }}
         env:
-          VITE_CLIENT_ID: '${{ secrets.CLIENT_ID }}'
-          VITE_CLIENT_SECRET: '${{ secrets.CLIENT_SECRET }}'
+          VITE_CLIENT_ID: '${{ secrets.HYPIXEL_API_KEY }}'
         run: yarn test --coverage
 
       - name: Build Code
