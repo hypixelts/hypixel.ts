@@ -1,4 +1,4 @@
-import petitio, { PetitioResponse } from 'petitio';
+import { request, Dispatcher } from 'undici';
 import { HypixelTSError } from '../errors';
 import type { RestManager } from '.';
 import type { Client, RequestData, ExtendedRequestData } from '../lib';
@@ -64,20 +64,24 @@ export class APIRequest {
 
 	/**
 	 * Makes a request to the API.
-	 * @returns {Promise<PetitioResponse>}
+	 * @returns {Promise<ResponseData>}
 	 */
-	public async make(): Promise<PetitioResponse> {
+	public async make(): Promise<Dispatcher.ResponseData> {
 		const { apiKey } = this.client;
 
 		const headers: HeadersInit = {};
 		if (!apiKey) throw new HypixelTSError('CLIENT_OPTION_MISSING', 'apiKey');
 		headers['API-Key'] = apiKey;
 
-		let body = {};
+		let body = null;
 		if (this.method !== 'get' && this.options.body) {
 			body = JSON.stringify(this.options.body);
 			headers['Content-Type'] = 'application/json';
 		}
-		return petitio(`https://api.hypixel.net${this.path}`).body(body, 'json').header(headers).send();
+
+		return request(`https://api.hypixel.net${this.path}`, {
+			body: body as string,
+			headers
+		});
 	}
 }
