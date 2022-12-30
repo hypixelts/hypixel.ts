@@ -8,13 +8,13 @@ jobs:
   Continuous-integration:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@dc323e67f16fb5f7663d20ff7941f27f5809e9b6 # v2
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561 # v2
         with:
           node-version: 16
       - name: Restore CI Cache
-        uses: actions/cache@v2
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # v2
         id: cache-restore
         with:
           path: node_modules
