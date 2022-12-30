@@ -36,9 +36,9 @@ export class RequestHandler {
 	 */
 	public async execute(request: APIRequest) {
 		const res = await request.make();
-		if (res.statusCode! <= 400) return res.json();
+		if (res.statusCode! <= 400) return res.body.json();
 
-		const apiError = (await res.json()) as HypixelAPIErrorResponse;
+		const apiError = (await res.body.json()) as HypixelAPIErrorResponse;
 		throw new HypixelAPIError(apiError.cause, res.statusCode!);
 	}
 }

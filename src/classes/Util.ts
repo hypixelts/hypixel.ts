@@ -1,5 +1,5 @@
 import { BaseClass } from '.';
-import petitio from 'petitio';
+import { request } from 'undici';
 import { HypixelTSError } from '../errors';
 import type { Client } from '../lib';
 import type { GetUsernameResponse, GetUUIDResponse } from '../typings';
@@ -19,8 +19,8 @@ export class Util extends BaseClass {
 	 */
 	public async getUUID(name: string) {
 		try {
-			const data = await petitio(`https://api.mojang.com/users/profiles/minecraft/${name}`).send();
-			const json = (await data.json()) as GetUUIDResponse;
+			const data = await request(`https://api.mojang.com/users/profiles/minecraft/${name}`);
+			const json = (await data.body.json()) as GetUUIDResponse;
 
 			if (json.error) throw new HypixelTSError('GET_UUID_ERROR', json.error, data.statusCode);
 
@@ -41,8 +41,8 @@ export class Util extends BaseClass {
 		}
 
 		try {
-			const data = await petitio(`https://api.mojang.com/user/profile/${uuid}`).send();
-			const json = (await data.json()) as GetUsernameResponse;
+			const data = await request(`https://api.mojang.com/user/profile/${uuid}`);
+			const json = (await data.body.json()) as GetUsernameResponse;
 
 			if (json.error) throw new HypixelTSError('GET_USERNAME_ERROR', json.error, data.statusCode);
 
