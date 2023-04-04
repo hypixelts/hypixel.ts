@@ -9,11 +9,6 @@ test('PlayerManager.fetch returns Player Object', async () => {
 	expect(player).toBeInstanceOf(Player);
 });
 
-test('PlayerManager.getFriends is instance of Array', async () => {
-	const friends = await client.players.getFriends('Thorin');
-	expect(friends).toBeInstanceOf(Array);
-});
-
 test('PlayerManager.getRecentlyPlayedGames is instance of Array', async () => {
 	const games = await client.players.getRecentlyPlayedGames('Thorin');
 	expect(games).toBeInstanceOf(Array);

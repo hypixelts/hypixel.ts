@@ -1,11 +1,3 @@
-export interface GetPlayerFriendsRawResponse {
-	_id: string;
-	uuidSender: string;
-	uuidReceiver: string;
-	started: number;
-}
-[];
-
 export interface GetRecentlyPlayedGamesResponse {
 	date: number;
 	gameType: string;

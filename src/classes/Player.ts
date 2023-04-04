@@ -72,15 +72,6 @@ export class Player extends BaseClass {
 	}
 
 	/**
-	 * Get the friends of this player.
-	 * @param {boolean} [raw]: Whether to return the raw API data. Defaults to true.
-	 * @returns {Promise<import('../typings').GetPlayerFriendsRawResponse | Player[]>}
-	 */
-	public async getFriends(raw?: boolean) {
-		return this.client.players.getFriends(this.uuid, raw);
-	}
-
-	/**
 	 * Get the recently played games of this player.
 	 * @returns {Promise<import('../typings').GetRecentlyPlayedGamesResponse>}
 	 */
