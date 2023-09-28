@@ -34,7 +34,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^17.6.5",
 		"@commitlint/config-conventional": "^17.6.5",
-		"@sapphire/eslint-config": "^4.4.2",
+		"@sapphire/eslint-config": "^5.0.2",
 		"@sapphire/prettier-config": "^1.4.5",
 		"@sapphire/ts-config": "^3.3.4",
 		"@types/eslint": "^8.40.0",
