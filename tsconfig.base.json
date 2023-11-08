@@ -1,4 +1,0 @@
-{
-    "extends": "@sapphire/ts-config/base",
-    "include": ["./src/**/*"]
-}
