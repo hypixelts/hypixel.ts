@@ -1,0 +1,4 @@
+.env*
+*.gz
+node_modules/
+docs/
