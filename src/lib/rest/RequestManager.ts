@@ -31,11 +31,13 @@ export class RequestManager {
 
 	/**
 	 * Makes the api request and pushes it to the request queue
+	 * @param path The path/endpoint to make the request to
+	 * @param sendAPIKey Whether or not to send the apiKey with this request
 	 */
-	public async execute<T>(path: string) {
+	public async execute<T>(path: string, sendAPIKey: boolean) {
 		await this.queue.wait();
 		try {
-			const request = await new ApiRequest(this, { path }).make();
+			const request = await new ApiRequest(this, { path, sendAPIKey }).make();
 			return request.json() as T;
 		} finally {
 			this.queue.shift();

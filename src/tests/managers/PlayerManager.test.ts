@@ -3,12 +3,12 @@ import { expect, expectTypeOf } from 'vitest';
 import { Player } from '../../lib/';
 
 test('PlayerManager.get (with username) returns Player class', async ({ client }) => {
-	const player = await client.players.get(process.env.VITE_TESTING_USERNAME);
+	const player = await client.players.fetch(process.env.VITE_TESTING_USERNAME);
 	expect(player).toBeInstanceOf(Player);
 });
 
 test('PlayerManager.get (with uuid) returns Player class', async ({ client }) => {
-	const player = await client.players.get(process.env.VITE_TESTING_USER_UUID);
+	const player = await client.players.fetch(process.env.VITE_TESTING_USER_UUID);
 	expect(player).toBeInstanceOf(Player);
 });
 

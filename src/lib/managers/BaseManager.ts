@@ -6,19 +6,28 @@ import { Client } from '../Client';
  */
 export class BaseManager {
 	/**
+	 * Whether or not the manager requires API key authorization.
+	 */
+	protected requiresAuth: boolean;
+
+	/**
 	 * The instantiated hypixel.ts client
 	 */
-	public client: Client;
+	protected client: Client;
 
-	public constructor(client: Client) {
+	public constructor(client: Client, requiresAuth: boolean) {
 		this.client = client;
+		this.requiresAuth = requiresAuth;
 	}
 
 	/**
-	 * Calls the request manager to create (and execute) requests to the API
+	 * Calls the request manager to create (and execute) requests to the API.
+	 *
+	 * **NOTE**: Do not directly use this method unless you know what you are doing. Consider using the methods provided in the managers.
 	 * @param path The path/endpoint of the request
+	 * @private
 	 */
-	public async makeGetRequest<T>(path: string) {
-		return this.client.requests.execute<T>(path);
+	protected async makeGetRequest<T>(path: string) {
+		return this.client.requests.execute<T>(path, this.requiresAuth);
 	}
 }

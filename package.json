@@ -20,7 +20,7 @@
 		"format": "yarn prettier --write src",
 		"test": "yarn vitest",
 		"coverage": "yarn test --coverage",
-		"prepare": "yarn husky install",
+		"prepare": "yarn husky install .github/.husky",
 		"prepublishOnly": "yarn build && yarn gen-esm"
 	},
 	"dependencies": {

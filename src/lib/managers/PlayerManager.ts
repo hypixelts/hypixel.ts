@@ -8,14 +8,14 @@ import { APIPlayer, GetRecentlyPlayedGamesResponse, GetStatusResponse } from '..
  */
 export class PlayerManager extends BaseManager {
 	public constructor(client: Client) {
-		super(client);
+		super(client, true);
 	}
 
 	/**
 	 * Fetch a player using their username or uuid
 	 * @param identifier The username/uuid of the player
 	 */
-	public async get(identifier: string) {
+	public async fetch(identifier: string) {
 		const uuid = await this.getUUID(identifier);
 		const { player } = await this.makeGetRequest<{ player: APIPlayer }>(`/player?uuid=${uuid}`);
 		return new Player(this.client, player);

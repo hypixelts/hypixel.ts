@@ -6,14 +6,19 @@ import { HypixelTSError } from '../errors';
  */
 export interface ApiRequestOptions {
 	/**
+	 * The request path/endpoint
+	 */
+	path: string;
+
+	/**
 	 * The request method, only `GET` is supported
 	 */
 	method?: 'GET';
 
 	/**
-	 * The request path/endpoint
+	 * Whether to send the API key for this request
 	 */
-	path: string;
+	sendAPIKey?: boolean;
 }
 
 /**
@@ -60,15 +65,19 @@ export class ApiRequest {
 	public buildOptions() {
 		const { apiKey } = this.requests.client.options;
 
-		if (!apiKey) throw new HypixelTSError('CLIENT_OPTIONS_MISSING', 'apiKey');
+		const headers: Record<string, string> = {
+			'Content-Type': 'application/json'
+		};
+
+		if (this.options.sendAPIKey) {
+			if (!apiKey) throw new HypixelTSError('CLIENT_OPTIONS_MISSING', 'apiKey');
+			headers['API-Key'] = apiKey;
+		}
 
 		const options = {
 			url: `${this.requests.baseApiUrl}${this.options.path}`,
 			method: this.options.method ?? 'GET',
-			headers: {
-				'Content-Type': 'application/json',
-				'API-Key': this.requests.client.options.apiKey
-			}
+			headers
 		};
 
 		return options;

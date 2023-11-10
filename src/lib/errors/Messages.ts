@@ -8,7 +8,12 @@ const messages = {
 	GET_UUID_404: `Util.getUUID: Player not found`,
 	GET_USERNAME_ERROR: (error: string, code: number) => `Util.getUsername: Failed with error ${error}, status code ${code}`,
 	GET_USERNAME_404: `Util.getUsername: Player not found`,
-	NOT_UUID: `The supplied string was not of the correct format for a UUID`
+	NOT_UUID: `The supplied string was not of the correct format for a UUID`,
+	METHOD_MISSING_OPTION: (manager: string, method: string, option: string) => `${manager}.${method}: Required option "${option}" is missing`,
+	METHOD_INVALID_OPTIONS: (manager: string, method: string, option: string, expected: string[]) =>
+		`${manager}.${method}: Invalid options provided. Expected ${
+			expected.length ? `either ${expected.join(', ')}` : expected.join(', ')
+		} for the "${option}" option`
 };
 
 for (const [key, value] of Object.entries(messages)) register(key, value);

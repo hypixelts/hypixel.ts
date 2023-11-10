@@ -1,5 +1,5 @@
 import { HypixelTSError } from './errors';
-import { PlayerManager } from './managers';
+import { PlayerManager, GuildManager } from './managers';
 import { RequestManager } from './rest';
 
 /**
@@ -8,8 +8,9 @@ import { RequestManager } from './rest';
 export interface ClientOptions {
 	/**
 	 * The hypixel api key.
+	 * This is optional to provide as some managers support non auth requests.
 	 */
-	apiKey: string;
+	apiKey?: string;
 
 	/**
 	 * The base hypixel api url
@@ -26,6 +27,7 @@ export class Client {
 	public options: ClientOptions;
 	public requests!: RequestManager;
 	public players!: PlayerManager;
+	public guilds!: GuildManager;
 
 	public constructor(options: ClientOptions) {
 		this.options = options;
@@ -51,5 +53,6 @@ export class Client {
 	private registerManagers() {
 		this.requests = new RequestManager(this);
 		this.players = new PlayerManager(this);
+		this.guilds = new GuildManager(this);
 	}
 }

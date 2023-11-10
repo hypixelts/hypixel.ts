@@ -8,7 +8,7 @@ export class Base {
 	/**
 	 * The instantiated hypixel.ts client.
 	 */
-	public client: Client;
+	protected client: Client;
 
 	public constructor(client: Client) {
 		this.client = client;
