@@ -1,0 +1,25 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["config:base"],
+    "labels": ["dependencies"],
+    "prConcurrentLimit": 10,
+    "separateMinorPatch": false,
+    "lockFileMaintenance": {
+        "automerge": true
+    },
+    "minor": {
+        "automerge": true
+    },
+    "patch": {
+        "automerge": true
+    },
+    "major": {
+        "reviewers": ["FC5570"]
+    },
+    "packageRules": [
+        {
+            "matchPackagePrefixes": ["@types/"],
+            "automerge": true
+        }
+    ]
+}
