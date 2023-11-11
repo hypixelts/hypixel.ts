@@ -63,7 +63,7 @@ export class ApiRequest {
 	 * Creates an object containing the options to be passed to the request
 	 */
 	public buildOptions() {
-		const { apiKey } = this.requests.client.options;
+		const apiKey = this.requests.client.options?.apiKey;
 
 		const headers: Record<string, string> = {
 			'Content-Type': 'application/json'

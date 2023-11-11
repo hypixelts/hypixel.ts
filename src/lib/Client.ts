@@ -1,4 +1,3 @@
-import { HypixelTSError } from './errors';
 import { PlayerManager, GuildManager } from './managers';
 import { RequestManager } from './rest';
 
@@ -24,14 +23,13 @@ export interface ClientOptions {
  * @category Classes
  */
 export class Client {
-	public options: ClientOptions;
+	public options?: ClientOptions;
 	public requests!: RequestManager;
 	public players!: PlayerManager;
 	public guilds!: GuildManager;
 
-	public constructor(options: ClientOptions) {
-		this.options = options;
-		if (!this.options) throw new HypixelTSError('CLIENT_OPTIONS_MISSING');
+	public constructor(options?: ClientOptions) {
+		this.options = options ?? {};
 		this.options.baseApiUrl = 'https://api.hypixel.net';
 	}
 
@@ -40,9 +38,6 @@ export class Client {
 	 * *NOTE*: This method must be called before further usage.
 	 */
 	public start() {
-		if (!this.options.apiKey) throw new HypixelTSError('CLIENT_OPTIONS_MISSING', 'apiKey');
-		if (typeof this.options.apiKey !== 'string')
-			throw new HypixelTSError('CLIENT_OPTION_INVALID_TYPE', 'apiKey', 'string', typeof this.options.apiKey);
 		this.registerManagers();
 		return this;
 	}

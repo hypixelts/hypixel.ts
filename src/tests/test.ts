@@ -3,15 +3,18 @@ import { Client } from '../lib/Client';
 
 interface TestFixtures {
 	client: Client;
+	nonAuthClient: Client;
 }
 
 export const test = (viTest as TestAPI).extend<TestFixtures>({
-	client: new Client({ apiKey: process.env.VITE_HYPIXEL_API_KEY }).start()
+	client: new Client({ apiKey: process.env.VITE_HYPIXEL_API_KEY }).start(),
+	nonAuthClient: new Client().start()
 });
 
 declare module 'vitest' {
 	export interface TestContext {
 		client: Client;
+		nonAuthClient: Client;
 	}
 }
 

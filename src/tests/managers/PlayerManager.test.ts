@@ -19,6 +19,5 @@ test('PlayerManager.getRecentlyPlayedGames returns recently played games', async
 
 test('PlayerManager.getStatus returns current online status', async ({ client }) => {
 	const status = await client.players.getStatus(process.env.VITE_TESTING_USER_UUID);
-	console.log(status);
 	expectTypeOf(status).toBeObject();
 });
