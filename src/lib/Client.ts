@@ -1,22 +1,6 @@
-import { PlayerManager, GuildManager } from './managers';
+import { PlayerManager, GuildManager, ResourceManager } from './managers';
 import { RequestManager } from './rest';
-
-/**
- * The client options.
- */
-export interface ClientOptions {
-	/**
-	 * The hypixel api key.
-	 * This is optional to provide as some managers support non auth requests.
-	 */
-	apiKey?: string;
-
-	/**
-	 * The base hypixel api url
-	 * @private
-	 */
-	baseApiUrl?: string;
-}
+import type { ClientOptions } from '../index';
 
 /**
  * The hypixel.ts client.
@@ -27,6 +11,7 @@ export class Client {
 	public requests!: RequestManager;
 	public players!: PlayerManager;
 	public guilds!: GuildManager;
+	public resources!: ResourceManager;
 
 	public constructor(options?: ClientOptions) {
 		this.options = options ?? {};
@@ -49,5 +34,6 @@ export class Client {
 		this.requests = new RequestManager(this);
 		this.players = new PlayerManager(this);
 		this.guilds = new GuildManager(this);
+		this.resources = new ResourceManager(this);
 	}
 }

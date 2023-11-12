@@ -1,5 +1,5 @@
 import { BaseManager } from '.';
-import { Client, Guild, type APIGuild } from '../';
+import { Guild, type Client, type APIGuild } from '../';
 import { HypixelTSError } from '../errors';
 
 /**

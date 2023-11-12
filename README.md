@@ -1,6 +1,6 @@
 <div align="center">
 
-![banner](https://i.imgur.com/FYGGv8l.png)
+![banner](https://raw.githubusercontent.com/hypixelts/assets/main/svg/full-nobg5232x945.svg)
 
 ## **An easy to use [Hypixel API](https://api.hypixel.net) wrapper.**
 
@@ -15,7 +15,7 @@
 
 ## About
 
-hypixel.ts is a [NodeJS](https://nodejs.org) module which allows you to interact with the [Hypixel API](https://api.hypixel.net) easily.
+hypixel.ts is a [NodeJS](https://nodejs.org) wrapper for the [Hypixel API](https://api.hypixel.net) which allows you to interact with it easily.
 
 -   Written in Typescript
 -   CommonJS, ESM support

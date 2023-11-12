@@ -1,4 +1,4 @@
-import { Client } from '../Client';
+import type { Client } from '../Client';
 
 /**
  * The base manager which all other managers extend from

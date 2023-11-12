@@ -1,6 +1,6 @@
 import { Client, Player, Util } from '../';
 import { BaseManager } from '.';
-import { APIPlayer, GetRecentlyPlayedGamesResponse, GetStatusResponse } from '../typings';
+import type { APIPlayer, GetRecentlyPlayedGamesResponse, GetStatusResponse } from '../typings';
 
 /**
  * Player related endpoints.
