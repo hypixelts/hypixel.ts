@@ -1,5 +1,6 @@
 /**
  * Recently played games returned by hypixel API
+ * @category Interfaces
  * @see {@link PlayerManager.getRecentlyPlayedGames}
  */
 export interface GetRecentlyPlayedGamesResponse {
@@ -12,6 +13,7 @@ export interface GetRecentlyPlayedGamesResponse {
 
 /**
  * Status of a player returned by hypixel API
+ * @category Interfaces
  * @see {@link PlayerManager.getStatus}
  */
 export interface GetStatusResponse {

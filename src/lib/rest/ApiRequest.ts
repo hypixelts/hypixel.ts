@@ -3,6 +3,8 @@ import { HypixelTSError } from '../errors';
 
 /**
  * The options supplied to the request
+ * @category Rest
+ * @group Rest
  */
 export interface ApiRequestOptions {
 	/**
@@ -24,6 +26,7 @@ export interface ApiRequestOptions {
 /**
  * Handles (sending/building options) requests
  * @category Rest
+ * @group Rest
  */
 export class ApiRequest {
 	/**

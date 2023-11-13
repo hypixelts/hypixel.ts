@@ -16,6 +16,7 @@ import type {
  * **Note**: API Key authorization is not required to use this manager.
  *
  * @category Managers
+ * @group Managers
  */
 export class ResourceManager extends BaseManager {
 	public constructor(client: Client) {

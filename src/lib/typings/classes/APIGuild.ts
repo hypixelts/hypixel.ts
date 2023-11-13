@@ -1,5 +1,6 @@
 /**
  * The Guild object returned from the API (in JSON) which is converted to `Guild` class.
+ * @category Interfaces
  */
 export interface APIGuild {
 	_id: string;
@@ -16,6 +17,9 @@ export interface APIGuild {
 	guildExpByGameType: Record<string, number>;
 }
 
+/**
+ * @category Interfaces
+ */
 export interface APIGuildMember {
 	uuid: string;
 	rank: string;
@@ -24,6 +28,9 @@ export interface APIGuildMember {
 	expHistory: Record<string, number>;
 }
 
+/**
+ * @category Interfaces
+ */
 export interface APIGuildRank {
 	name: string;
 	priority: number;

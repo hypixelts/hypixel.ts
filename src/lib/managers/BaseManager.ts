@@ -3,6 +3,7 @@ import type { Client } from '../Client';
 /**
  * The base manager which all other managers extend from
  * @category Managers
+ * @group Managers
  */
 export class BaseManager {
 	/**

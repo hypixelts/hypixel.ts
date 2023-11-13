@@ -5,6 +5,7 @@ import type { GetUsernameResponse, GetUUIDResponse } from '../typings';
 /**
  * Utility functions
  * @category Classes
+ * @group Classes
  */
 export class Util extends Base {
 	/**

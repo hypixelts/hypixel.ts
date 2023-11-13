@@ -2,6 +2,7 @@ export * from './lib';
 
 /**
  * The client options.
+ * @category Interfaces
  */
 export interface ClientOptions {
 	/**

@@ -6,6 +6,7 @@ export interface Player extends APIPlayer {}
 /**
  * The player class
  * @category Classes
+ * @group Classes
  * @see {@link https://api.hypixel.net/#tag/Player-Data/paths/~1player/get}
  */
 export class Player extends Base {

@@ -1,5 +1,7 @@
 /**
  * Response body when an error is returned by the hypixel api
+ * @category Rest
+ * @group Rest
  */
 export interface HypixelAPIErrorResponse {
 	/**
@@ -16,6 +18,7 @@ export interface HypixelAPIErrorResponse {
 /**
  * Error thrown when an error is encountered while querying the hypixel API
  * @category Rest
+ * @group Rest
  */
 export class HypixelAPIError extends Error {
 	public code: number;

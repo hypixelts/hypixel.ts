@@ -5,6 +5,7 @@ import { Client } from '../Client';
 /**
  * Manages the requests to the API
  * @category Rest
+ * @group Rest
  */
 export class RequestManager {
 	/**
@@ -25,7 +26,7 @@ export class RequestManager {
 
 	public constructor(client: Client) {
 		this.client = client;
-		this.baseApiUrl = client.options.baseApiUrl ?? 'https://api.hypixel.net';
+		this.baseApiUrl = client.options?.baseApiUrl ?? 'https://api.hypixel.net';
 		this.queue = new AsyncQueue();
 	}
 

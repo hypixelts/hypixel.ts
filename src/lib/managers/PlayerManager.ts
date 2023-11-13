@@ -5,6 +5,7 @@ import type { APIPlayer, GetRecentlyPlayedGamesResponse, GetStatusResponse } fro
 /**
  * Player related endpoints.
  * @category Managers
+ * @group Managers
  */
 export class PlayerManager extends BaseManager {
 	public constructor(client: Client) {

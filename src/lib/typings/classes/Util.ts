@@ -1,5 +1,6 @@
 /**
  * Response returned by mojang API for user uuid lookup
+ * @category Interfaces
  * @see {@link Util.getUUID}
  */
 export interface GetUUIDResponse {
@@ -10,6 +11,7 @@ export interface GetUUIDResponse {
 
 /**
  * Response returned by mojang API for user name lookup
+ * @category Interfaces
  * @see {@link Util.getUsername}
  */
 export interface GetUsernameResponse {

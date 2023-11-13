@@ -1,5 +1,6 @@
 /**
  * The Player object returned from the API (in JSON) which is converted to the `Player` class.
+ * @category Interfaces
  */
 export interface APIPlayer {
 	/**

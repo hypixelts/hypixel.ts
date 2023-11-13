@@ -3,6 +3,7 @@ import { Client } from '../Client';
 /**
  * The base class which all other classes extend from.
  * @category Classes
+ * @group Classes
  */
 export class Base {
 	/**

@@ -5,6 +5,7 @@ import { HypixelTSError } from '../errors';
 /**
  * Guild related endpoints
  * @category Managers
+ * @group Managers
  */
 export class GuildManager extends BaseManager {
 	public constructor(client: Client) {
