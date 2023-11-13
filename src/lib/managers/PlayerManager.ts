@@ -1,4 +1,5 @@
 import { Client, Player, Util } from '../';
+import { HypixelTSError } from '../errors';
 import { BaseManager } from '.';
 import type { APIPlayer, GetRecentlyPlayedGamesResponse, GetStatusResponse } from '../typings';
 
@@ -17,6 +18,8 @@ export class PlayerManager extends BaseManager {
 	 * @param identifier The username/uuid of the player
 	 */
 	public async fetch(identifier: string) {
+		if (!identifier) throw new HypixelTSError('METHOD_MISSING_OPTION', 'PlayerManager', 'fetch', 'identifier');
+
 		const uuid = await this.getUUID(identifier);
 		const { player } = await this.makeGetRequest<{ player: APIPlayer }>(`/player?uuid=${uuid}`);
 		return new Player(this.client, player);
@@ -27,6 +30,8 @@ export class PlayerManager extends BaseManager {
 	 * @param identifier The username/uuid of the player
 	 */
 	public async getRecentlyPlayedGames(identifier: string) {
+		if (!identifier) throw new HypixelTSError('METHOD_MISSING_OPTION', 'PlayerManager', 'getRecentlyPlayedGames', 'identifier');
+
 		const uuid = await this.getUUID(identifier);
 		const { games } = await this.makeGetRequest<{ games: GetRecentlyPlayedGamesResponse[] }>(`/recentgames?uuid=${uuid}`);
 		return games;
@@ -37,6 +42,8 @@ export class PlayerManager extends BaseManager {
 	 * @param identifier The username/uuid of the player
 	 */
 	public async getStatus(identifier: string) {
+		if (!identifier) throw new HypixelTSError('METHOD_MISSING_OPTION', 'PlayerManager', 'getStatus', 'identifier');
+
 		const uuid = await this.getUUID(identifier);
 		const { session } = await this.makeGetRequest<{ session: GetStatusResponse }>(`/status?uuid=${uuid}`);
 		return session;
