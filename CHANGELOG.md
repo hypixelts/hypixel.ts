@@ -13,7 +13,6 @@ All notable changes to this project will be documented in this file.
 - Refactor code
 - Add guild manager
 - Make api authorization optional
-
 - Add resource manager
 - Add validation checks to methods
 

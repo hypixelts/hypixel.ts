@@ -1,4 +1,4 @@
-import { PlayerManager, GuildManager, ResourceManager, OtherManager } from './managers';
+import { PlayerManager, GuildManager, ResourceManager, OtherManager, SkyBlockManager } from './managers';
 import { RequestManager } from './rest';
 import type { ClientOptions } from '../index';
 
@@ -13,6 +13,7 @@ export class Client {
 	public guilds!: GuildManager;
 	public resources!: ResourceManager;
 	public others!: OtherManager;
+	public skyblock!: SkyBlockManager;
 
 	public constructor(options?: ClientOptions) {
 		this.options = options ?? {};
@@ -37,5 +38,6 @@ export class Client {
 		this.guilds = new GuildManager(this);
 		this.resources = new ResourceManager(this);
 		this.others = new OtherManager(this);
+		this.skyblock = new SkyBlockManager(this);
 	}
 }
