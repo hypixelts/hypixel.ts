@@ -8,6 +8,7 @@
         "dependencies"
     ],
     "prConcurrentLimit": 10,
+    "ignoreTests": true, // TODO: remove when github ci is added
     "major": {
         "reviewers": [
             "FC5570"
