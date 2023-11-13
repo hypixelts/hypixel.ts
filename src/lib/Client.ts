@@ -1,4 +1,4 @@
-import { PlayerManager, GuildManager, ResourceManager } from './managers';
+import { PlayerManager, GuildManager, ResourceManager, OtherManager } from './managers';
 import { RequestManager } from './rest';
 import type { ClientOptions } from '../index';
 
@@ -12,6 +12,7 @@ export class Client {
 	public players!: PlayerManager;
 	public guilds!: GuildManager;
 	public resources!: ResourceManager;
+	public others!: OtherManager;
 
 	public constructor(options?: ClientOptions) {
 		this.options = options ?? {};
@@ -35,5 +36,6 @@ export class Client {
 		this.players = new PlayerManager(this);
 		this.guilds = new GuildManager(this);
 		this.resources = new ResourceManager(this);
+		this.others = new OtherManager(this);
 	}
 }
