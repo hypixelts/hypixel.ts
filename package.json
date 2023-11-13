@@ -21,7 +21,8 @@
 		"test": "yarn vitest",
 		"coverage": "yarn test --coverage",
 		"prepare": "yarn husky install .github/.husky",
-		"prepublishOnly": "yarn build && yarn gen-esm"
+		"prepublishOnly": "yarn build && yarn gen-esm",
+		"release": "yarn cliff-jumper && git push && git push --tags && npm publish"
 	},
 	"dependencies": {
 		"@sapphire/async-queue": "^1.5.0"
@@ -29,6 +30,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^18.2.0",
 		"@commitlint/config-conventional": "^18.1.0",
+		"@favware/cliff-jumper": "^2.2.1",
 		"@sapphire/eslint-config": "^5.0.2",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.0",
