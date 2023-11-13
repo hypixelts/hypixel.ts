@@ -14,4 +14,12 @@ export class Player extends Base {
 		super(client);
 		Object.assign(this, data);
 	}
+
+	/**
+	 * Fetch the SkyBlock profiles of this player
+	 * @see {@link SkyBlockManager.fetchSkyBlockProfiles}
+	 */
+	public async fetchSkyBlockProfiles() {
+		return this.client.skyblock.fetchPlayerSkyBlockProfiles(this.uuid);
+	}
 }
