@@ -1,8 +1,11 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
+        ":dependencyDashboard",
         "config:base",
-        ":dependencyDashboard"
+        ":automergeMinor",
+        ":automergeTypes",
+        ":combinePatchMinorReleases"
     ],
     "labels": [
         "dependencies"
@@ -13,32 +16,5 @@
         "reviewers": [
             "FC5570"
         ]
-    },
-    "lockFileMaintenance": {
-        "automerge": true
-    },
-    "minor": {
-        "automerge": true
-    },
-    "patch": {
-        "automerge": true
-    },
-    "pin": {
-        "automerge": true
-    },
-    "separateMinorPatch": false,
-    "packageRules": [
-        {
-            "matchPackagePrefixes": [
-                "@types/"
-            ],
-            "automerge": true
-        },
-        {
-            "matchDepTypes": [
-                "devDepdendencies"
-            ],
-            "automerge": true
-        }
-    ]
+    }
 }
