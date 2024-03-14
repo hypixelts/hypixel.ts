@@ -1,5 +1,5 @@
 /**
- * The Guild object returned from the API (in JSON) which is converted to `Guild` class.
+ * The Guild object returned from the API (in JSON) which is converted to @see {@link Guild} class.
  * @category Interfaces
  */
 export interface APIGuild {
