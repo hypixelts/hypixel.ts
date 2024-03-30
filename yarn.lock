@@ -2423,59 +2423,59 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-cliff-darwin-arm64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "git-cliff-darwin-arm64@npm:2.1.2"
+"git-cliff-darwin-arm64@npm:2.2.0":
+  version: 2.2.0
+  resolution: "git-cliff-darwin-arm64@npm:2.2.0"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-darwin-x64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "git-cliff-darwin-x64@npm:2.1.2"
+"git-cliff-darwin-x64@npm:2.2.0":
+  version: 2.2.0
+  resolution: "git-cliff-darwin-x64@npm:2.2.0"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff-linux-arm64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "git-cliff-linux-arm64@npm:2.1.2"
+"git-cliff-linux-arm64@npm:2.2.0":
+  version: 2.2.0
+  resolution: "git-cliff-linux-arm64@npm:2.2.0"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-linux-x64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "git-cliff-linux-x64@npm:2.1.2"
+"git-cliff-linux-x64@npm:2.2.0":
+  version: 2.2.0
+  resolution: "git-cliff-linux-x64@npm:2.2.0"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff-windows-arm64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "git-cliff-windows-arm64@npm:2.1.2"
+"git-cliff-windows-arm64@npm:2.2.0":
+  version: 2.2.0
+  resolution: "git-cliff-windows-arm64@npm:2.2.0"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-windows-x64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "git-cliff-windows-x64@npm:2.1.2"
+"git-cliff-windows-x64@npm:2.2.0":
+  version: 2.2.0
+  resolution: "git-cliff-windows-x64@npm:2.2.0"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
 "git-cliff@npm:^2.0.0, git-cliff@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "git-cliff@npm:2.1.2"
+  version: 2.2.0
+  resolution: "git-cliff@npm:2.2.0"
   dependencies:
     execa: "npm:^8.0.1"
-    git-cliff-darwin-arm64: "npm:2.1.2"
-    git-cliff-darwin-x64: "npm:2.1.2"
-    git-cliff-linux-arm64: "npm:2.1.2"
-    git-cliff-linux-x64: "npm:2.1.2"
-    git-cliff-windows-arm64: "npm:2.1.2"
-    git-cliff-windows-x64: "npm:2.1.2"
+    git-cliff-darwin-arm64: "npm:2.2.0"
+    git-cliff-darwin-x64: "npm:2.2.0"
+    git-cliff-linux-arm64: "npm:2.2.0"
+    git-cliff-linux-x64: "npm:2.2.0"
+    git-cliff-windows-arm64: "npm:2.2.0"
+    git-cliff-windows-x64: "npm:2.2.0"
   dependenciesMeta:
     git-cliff-darwin-arm64:
       optional: true
@@ -2491,7 +2491,7 @@ __metadata:
       optional: true
   bin:
     git-cliff: lib/cli/cli.js
-  checksum: 10c0/3a1c79c7dc37b5f720e89186bd18ed121243e89d381cfcbbf46f683b81f1c8150df62c4794b0aa9264e453dc6ef924e2696362ddf2e4e7730c23a6a5be26b14a
+  checksum: 10c0/9f08745f167df8d119af22711278d7bafb0c40d59283addd10663d643a4144d365121cb788b76b6b87b25a1b71b69760ff1315964689e51b98eab8ddb952f484
   languageName: node
   linkType: hard
 
