@@ -20,7 +20,7 @@
 		"format": "yarn prettier --write src",
 		"test": "yarn vitest",
 		"coverage": "yarn test --coverage",
-		"prepare": "yarn husky install .github/.husky",
+		"prepare": "husky",
 		"prepublishOnly": "yarn build && yarn gen-esm",
 		"bump": "yarn cliff-jumper",
 		"release": "git push && git push --tags && npm publish"
