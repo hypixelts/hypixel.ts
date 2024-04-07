@@ -13,9 +13,9 @@ import type {
 	FetchActiveAuctionsResponse,
 	FetchBazaarResponse,
 	RecentlyEndedAuctionsResponse,
-	FetchMuseumDataResponse,
 	FetchBingoDataResponse,
-	FetchFireSalesResponse
+	FetchFireSalesResponse,
+	FetchFireSalesResponseFireSale
 } from '../typings';
 
 /**
@@ -218,24 +218,13 @@ export class SkyBlockManager extends BaseManager {
 	}
 
 	/**
-	 * Fetch SkyBlock museum data for all members of the provided profile uuid. The data returned can differ depending on the players in-game API settings.
-	 * @param profileUuid The uuid of the SkyBlock profile
-	 */
-	public async fetchMuseumData(profileUuid: string): Promise<FetchMuseumDataResponse> {
-		const data = await this.makeGetRequest<FetchMuseumDataResponse>(`/skyblock/museum/${profileUuid}`);
-		return {
-			profile: data.profile
-		};
-	}
-
-	/**
 	 * Fetch bingo data of a player
 	 * @param playerUuid The uuid of the player
 	 */
 	public async fetchBingoData(playerUuid: string): Promise<FetchBingoDataResponse> {
 		if (!playerUuid) throw new HypixelTSError('METHOD_MISSING_OPTION', 'SkyBlockManager', 'fetchBingoData', 'playerUuid');
 
-		const data = await this.makeGetRequest<FetchBingoDataResponse>('/skyblock/bingo');
+		const data = await this.makeGetRequest<FetchBingoDataResponse>(`/skyblock/bingo?uuid=${playerUuid}`);
 		return {
 			events: data.events
 		};
@@ -244,9 +233,8 @@ export class SkyBlockManager extends BaseManager {
 	/**
 	 * Fetch the currently active or upcoming Fire Sales for SkyBlock
 	 */
-	public async fetchFireSales(): Promise<FetchFireSalesResponse> {
-		const { sales } = await this.makeGetRequest<{ sales: FetchFireSalesResponse }>('/skyblock/firesales');
-
+	public async fetchFireSales(): Promise<FetchFireSalesResponseFireSale[]> {
+		const { sales } = await this.makeGetRequest<FetchFireSalesResponse>('/skyblock/firesales');
 		return sales;
 	}
 }

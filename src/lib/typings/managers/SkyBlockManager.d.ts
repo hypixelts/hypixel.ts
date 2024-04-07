@@ -237,24 +237,6 @@ export interface FetchBazaarResponseProductQuickStatus {
 }
 
 /**
- * Museum data for a SkyBlockProfile returned by the hypixel API
- * @category Interfaces
- */
-export interface FetchMuseumDataResponse {
-	profile: FetchMuseumDataResponseProfile;
-}
-
-/**
- * @category Interfaces
- */
-export interface FetchMuseumDataResponseProfile {
-	value: number;
-	appraisal: boolean;
-	items: Record<string, string>;
-	special: unknown[];
-}
-
-/**
  * Bingo data of a player returned by the hypixel API
  * @category Interfaces
  */
