@@ -3,24 +3,27 @@
 	"version": "2.0.0",
 	"description": "A simple, easy to use wrapper for Hypixel API.",
 	"homepage": "https://hypixel.js.org/",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.mjs",
+	"types": "dist/cjs/index.d.ts",
 	"author": "FC5570",
 	"license": "MIT",
 	"exports": {
-		".": {
-			"require": "./dist/index.js",
-			"import": "./dist/index.mjs"
+		"require": {
+			"default": "./dist/cjs/index.js",
+			"types": "./dist/cjs/index.d.ts"
+		},
+		"import": {
+			"default": "./dist/esm/index.mjs",
+			"types": "./dist/esm/index.d.mts"
 		}
 	},
 	"scripts": {
-		"gen-esm": "yarn gen-esm-wrapper dist/index.js dist/index.mjs",
-		"build": "yarn tsc -b src",
-		"lint": "yarn eslint src --fix --ext .ts",
-		"format": "yarn prettier --write src",
+		"build": "yarn tsup",
+		"lint": "yarn eslint . --fix",
+		"format": "yarn prettier --write .",
 		"test": "yarn vitest",
 		"coverage": "yarn test --coverage",
-		"prepare": "husky",
 		"prepublishOnly": "yarn build && yarn gen-esm",
 		"bump": "yarn cliff-jumper",
 		"release": "git push && git push --tags && npm publish"
@@ -47,6 +50,8 @@
 		"husky": "^9.0.11",
 		"lint-staged": "^15.2.2",
 		"prettier": "^3.2.5",
+		"terser": "^5.30.3",
+		"tsup": "^8.0.2",
 		"typedoc": "^0.25.12",
 		"typescript": "^5.4.4",
 		"vitest": "^1.4.0"
