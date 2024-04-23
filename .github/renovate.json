@@ -1,8 +1,12 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"timezone": "Asia/Kolkata",
+	"schedule": [
+		"every sunday at 10am"
+	],
 	"extends": [":dependencyDashboard", "config:base", ":automergeMinor", ":automergeTypes", ":combinePatchMinorReleases"],
 	"labels": ["dependencies"],
-	"prConcurrentLimit": 10,
+	"prConcurrentLimit": 5,
 	"ignoreTests": true, // TODO: remove when github ci is added
 	"major": {
 		"reviewers": ["FC5570"]
