@@ -1,5 +1,6 @@
 /**
  * Active network boosters returned by the hypixel API
+ * @category Interfaces
  */
 export interface ActiveNetworkBoostersResponse {
 	boosters: ActiveNetworkBoostersResponseActiveBooster;

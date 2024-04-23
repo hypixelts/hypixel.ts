@@ -1,6 +1,7 @@
-import { BaseManager } from '.';
-import { Client, SkyBlockProfile, SkyBlockAuction } from '../';
-import { HypixelTSError } from '../errors';
+import { BaseManager } from './BaseManager';
+import { HypixelTSError } from '../errors/index';
+import { SkyBlockProfile, SkyBlockAuction } from '../classes/index';
+import type { Client } from '../Client';
 import type {
 	APISkyBlockProfile,
 	FetchCollectionsResponse,

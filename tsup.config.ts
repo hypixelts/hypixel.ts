@@ -1,10 +1,11 @@
 import { defineConfig, type Options } from 'tsup';
+import { esbuildPluginFilePathExtensions } from 'esbuild-plugin-file-path-extensions';
 
 const defaultOptions: Options = {
 	clean: true,
 	sourcemap: true,
 	skipNodeModulesBundle: true,
-	bundle: false,
+	bundle: true,
 	splitting: false,
 	shims: true,
 	keepNames: true,
@@ -22,6 +23,7 @@ export default defineConfig([
 	{
 		...defaultOptions,
 		format: ['esm'],
-		outDir: 'dist/esm'
+		outDir: 'dist/esm',
+		esbuildPlugins: [esbuildPluginFilePathExtensions()]
 	}
 ]);

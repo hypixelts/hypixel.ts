@@ -1,4 +1,4 @@
-export * from './lib';
+export * from './lib/index';
 
 /**
  * The client options.

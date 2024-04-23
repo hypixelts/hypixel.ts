@@ -1,5 +1,5 @@
 {
 	"extends": "./tsconfig.json",
-	"include": [".eslintrc.json", "./src/**/*", "vitest.config.ts", "tsup.config.ts"],
-	"exclude": ["dist"]
+	"include": [".eslintrc.json", "./src/**/*", "vitest.config.mts", "tsup.config.ts"],
+	"exclude": ["dist", "docs", "coverage"]
 }

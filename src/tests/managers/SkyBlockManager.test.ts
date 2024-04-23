@@ -1,5 +1,5 @@
 import { expect } from 'vitest';
-import { SkyBlockProfile } from '../../lib';
+import { SkyBlockProfile } from '../../lib/classes/SkyBlockProfile';
 import { test } from '../test';
 
 test('SkyBlockManager.fetchCollections returns collections', async ({ client }) => {

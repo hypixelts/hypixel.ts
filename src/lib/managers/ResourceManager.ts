@@ -1,4 +1,4 @@
-import { BaseManager } from '.';
+import { BaseManager } from './BaseManager';
 import type { Client } from '../Client';
 import type {
 	VanityPetsResponse,
@@ -8,7 +8,7 @@ import type {
 	GuildAchievementsResponse,
 	QuestsResponse,
 	VanityCompanionsResponse
-} from '../';
+} from '../typings';
 
 /**
  * Resource endpoints.

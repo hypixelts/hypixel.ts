@@ -1,4 +1,4 @@
-import { Guild } from '../../lib';
+import { Guild } from '../../lib/classes/Guild';
 import { test } from '../test';
 import { expect } from 'vitest';
 

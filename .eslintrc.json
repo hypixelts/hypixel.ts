@@ -1,4 +1,4 @@
 {
 	"extends": "@sapphire/eslint-config",
-	"ignorePatterns": ["dist"]
+	"ignorePatterns": ["dist", "docs", "coverage"]
 }

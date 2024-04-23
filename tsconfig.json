@@ -9,5 +9,6 @@
 		"incremental": true,
 		"skipDefaultLibCheck": true,
 		"skipLibCheck": true
-	}
+	},
+	"exclude": ["tests", "src/**/*.d.ts"]
 }

@@ -254,14 +254,14 @@ export interface FetchBingoDataResponseEvent {
 }
 
 /**
- * @category Interface
+ * @category Interfaces
  */
 export interface FetchFireSalesResponse {
 	sales: FetchFireSalesResponseFireSale[];
 }
 
 /**
- * @category Interface
+ * @category Interfaces
  */
 export interface FetchFireSalesResponseFireSale {
 	/**

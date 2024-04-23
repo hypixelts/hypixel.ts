@@ -1,5 +1,5 @@
-import { PlayerManager, GuildManager, ResourceManager, OtherManager, SkyBlockManager } from './managers';
-import { RequestManager } from './rest';
+import { PlayerManager, GuildManager, ResourceManager, OtherManager, SkyBlockManager } from './managers/index';
+import { RequestManager } from './rest/index';
 import type { ClientOptions } from '../index';
 
 /**

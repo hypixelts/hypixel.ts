@@ -33,7 +33,7 @@ export interface APISkyBlockProfile {
 }
 
 /**
- * @category Interface
+ * @category Interfaces
  */
 export interface APISkyBlockProfileMembers {
 	player_id: string;
@@ -46,7 +46,7 @@ export interface APISkyBlockProfileMembers {
 }
 
 /**
- * @category Interface
+ * @category Interfaces
  */
 export interface APISkyBlockAuctionBanking {
 	balance: number;
@@ -54,7 +54,7 @@ export interface APISkyBlockAuctionBanking {
 }
 
 /**
- * @category Interface
+ * @category Interfaces
  */
 export interface APISkyBlockAuctionBankingTransaction {
 	timestamp: number;

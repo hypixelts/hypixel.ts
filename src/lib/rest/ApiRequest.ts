@@ -1,5 +1,5 @@
-import { RequestManager, HypixelAPIError, type HypixelAPIErrorResponse } from '.';
-import { HypixelTSError } from '../errors';
+import { RequestManager, HypixelAPIError, type HypixelAPIErrorResponse } from './index';
+import { HypixelTSError } from '../errors/index';
 
 /**
  * The options supplied to the request
