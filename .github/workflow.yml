@@ -21,8 +21,10 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Run Tests
-        run: yarn coverage
+# Waiting for API key approval
+
+#      - name: Run Tests
+#       run: yarn coverage
 
       - name: Build
         run: yarn build
