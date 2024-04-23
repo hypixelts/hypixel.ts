@@ -1,14 +1,14 @@
-import { BaseManager } from '.';
+import { BaseManager } from './BaseManager';
+import type { Client } from '../Client';
 import type {
 	VanityPetsResponse,
 	AchievementsResponse,
 	ChallengesResponse,
-	Client,
 	GameInformationResponse,
 	GuildAchievementsResponse,
 	QuestsResponse,
 	VanityCompanionsResponse
-} from '../';
+} from '../typings';
 
 /**
  * Resource endpoints.

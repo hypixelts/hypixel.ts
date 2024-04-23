@@ -1,6 +1,7 @@
-import { Client, Player, Util } from '../';
-import { HypixelTSError } from '../errors';
-import { BaseManager } from '.';
+import { BaseManager } from './BaseManager';
+import { Client } from '../Client';
+import { Player, Util } from '../classes/index';
+import { HypixelTSError } from '../errors/index';
 import type { APIPlayer, GetRecentlyPlayedGamesResponse, GetStatusResponse } from '../typings';
 
 /**

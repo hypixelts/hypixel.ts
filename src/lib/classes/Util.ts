@@ -1,5 +1,5 @@
-import { Base } from '.';
-import { HypixelTSError } from '../errors';
+import { Base } from './Base';
+import { HypixelTSError } from '../errors/HypixelTSError';
 import type { GetUsernameResponse, GetUUIDResponse } from '../typings';
 
 /**

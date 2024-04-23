@@ -1,6 +1,8 @@
-import { BaseManager } from '.';
-import { Guild, type Client, type APIGuild } from '../';
-import { HypixelTSError } from '../errors';
+import { BaseManager } from './BaseManager';
+import { HypixelTSError } from '../errors/HypixelTSError';
+import { Guild } from '../classes/Guild';
+import type { APIGuild } from '../typings';
+import type { Client } from '../Client';
 
 /**
  * Guild related endpoints

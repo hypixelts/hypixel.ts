@@ -1,5 +1,5 @@
-import { BaseManager } from '.';
-import { Client } from '../';
+import { BaseManager } from './BaseManager';
+import { Client } from '../Client';
 import type {
 	ActiveNetworkBoostersResponse,
 	CurrentPlayerCountsResponse,

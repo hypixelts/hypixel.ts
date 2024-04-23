@@ -1,6 +1,6 @@
 import { test } from '../test';
+import { Player } from '../../lib/classes/Player';
 import { expect, expectTypeOf } from 'vitest';
-import { Player } from '../../lib/';
 
 test('PlayerManager.get (with username) returns Player class', async ({ client }) => {
 	const player = await client.players.fetch(process.env.VITE_TESTING_USERNAME);
