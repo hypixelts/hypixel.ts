@@ -63,3 +63,14 @@ client.skyblock.getProfile('lifelong').then(console.log);
 ## Help
 
 If you're having issues with a method, or the wrapper isn't working as expected, you can join our [Discord Server](https://discord.gg/DDTmaeYUMF) or contact FC#5104.
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
