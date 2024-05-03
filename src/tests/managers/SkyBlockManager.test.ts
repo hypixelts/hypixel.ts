@@ -59,8 +59,7 @@ test('SkyBlockManager.fetchPlayerSkyBlockProfiles returns player profiles', asyn
 });
 
 test('SkyBlockManager.fetchBingoData returns bingo data', async ({ client }) => {
-	const { events } = await client.skyblock.fetchBingoData('20ff3b4fbeae437c968d90d18e9293cc');
-	console.log(events);
+	const { events } = await client.skyblock.fetchBingoData('b872d5ac77034de6ab58f61482ea281f');
 	expect(events).toBeInstanceOf(Array);
 });
 

@@ -21,10 +21,8 @@ jobs:
       - name: Install Dependencies
         run: yarn install --immutable
 
-# Waiting for API key approval
-
-#      - name: Run Tests
-#       run: yarn coverage
+      - name: Run Tests
+        run: yarn coverage
 
       - name: Build
         run: yarn build

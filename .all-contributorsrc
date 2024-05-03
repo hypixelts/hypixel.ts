@@ -1,35 +1,26 @@
 {
-  "projectName": "hypixel.ts",
-  "projectOwner": "hypixelts",
-  "files": [
-    "README.md"
-  ],
-  "commitType": "docs",
-  "commitConvention": "angular",
-  "contributorsPerLine": 7,
-  "skipCi": true,
-  "contributors": [
-    {
-      "login": "FC5570",
-      "name": "FC",
-      "avatar_url": "https://avatars.githubusercontent.com/u/68158483?v=4",
-      "profile": "https://fc5570.me/",
-      "contributions": [
-        "code",
-        "ideas",
-        "maintenance",
-        "projectManagement"
-      ]
-    },
-    {
-      "login": "chriscn",
-      "name": "Christopher Nethercott",
-      "avatar_url": "https://avatars.githubusercontent.com/u/25829276?v=4",
-      "profile": "https://github.com/chriscn",
-      "contributions": [
-        "code"
-      ]
-    }
-  ],
-  "repoType": "github"
+	"projectName": "hypixel.ts",
+	"projectOwner": "hypixelts",
+	"files": ["README.md"],
+	"commitType": "docs",
+	"commitConvention": "angular",
+	"contributorsPerLine": 7,
+	"skipCi": true,
+	"contributors": [
+		{
+			"login": "FC5570",
+			"name": "FC",
+			"avatar_url": "https://avatars.githubusercontent.com/u/68158483?v=4",
+			"profile": "https://fc5570.me/",
+			"contributions": ["code", "ideas", "maintenance", "projectManagement"]
+		},
+		{
+			"login": "chriscn",
+			"name": "Christopher Nethercott",
+			"avatar_url": "https://avatars.githubusercontent.com/u/25829276?v=4",
+			"profile": "https://github.com/chriscn",
+			"contributions": ["code"]
+		}
+	],
+	"repoType": "github"
 }
