@@ -26,7 +26,7 @@ jobs:
         env:
           VITE_HYPIXEL_API_KEY: ${{ secrets.VITE_HYPIXEL_API_KEY }}
           VITE_TESTING_USERNAME: ${{ secrets.VITE_TESTING_USERNAME }}
-          VITE_TESTING_UUID: ${{ secrets.VITE_TESTING_USER_UUID }}
+          VITE_TESTING_USER_UUID: ${{ secrets.VITE_TESTING_USER_UUID }}
 
       - name: Build
         run: yarn build
