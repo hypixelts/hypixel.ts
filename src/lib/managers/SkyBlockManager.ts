@@ -33,7 +33,7 @@ export class SkyBlockManager extends BaseManager {
 	/**
 	 * Fetch information regarding collections in the SkyBlock game
 	 */
-	public async fetchCollections(): Promise<FetchCollectionsResponse> {
+	public async fetch集合(): Promise<FetchCollectionsResponse> {
 		const data = await this.makeGetRequest<FetchCollectionsResponse>('/resources/skyblock/collections');
 		return {
 			lastUpdated: data.lastUpdated,
@@ -140,7 +140,7 @@ export class SkyBlockManager extends BaseManager {
 		if (page && typeof page !== 'number')
 			throw new HypixelTSError('METHOD_INVALID_OPTIONS', 'SkyBlockManager', 'fetchActiveAuctions', 'page', ['number']);
 
-		const data = await this.makeGetRequest<FetchActiveAuctionsResponse>('/skyblock/auctions');
+		const data = await this.makeGetRequest<FetchActiveAuctionsResponse>(`/skyblock/auctions${page ? '?page=' + page : ''}`);
 
 		if (resolveAuctions) {
 			const parsed = [];
