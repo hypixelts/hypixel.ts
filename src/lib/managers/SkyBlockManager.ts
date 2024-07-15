@@ -33,7 +33,7 @@ export class SkyBlockManager extends BaseManager {
 	/**
 	 * Fetch information regarding collections in the SkyBlock game
 	 */
-	public async fetch集合(): Promise<FetchCollectionsResponse> {
+	public async fetchCollections(): Promise<FetchCollectionsResponse> {
 		const data = await this.makeGetRequest<FetchCollectionsResponse>('/resources/skyblock/collections');
 		return {
 			lastUpdated: data.lastUpdated,
