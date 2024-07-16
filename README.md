@@ -1,7 +1,7 @@
 <div align="center">
 
 ![banner](https://raw.githubusercontent.com/hypixelts/assets/main/svg/full-nobg5232x945.svg)
-
+## Fixed version
 ## **An easy to use [Hypixel API](https://api.hypixel.net) wrapper.**
 
 <p>
