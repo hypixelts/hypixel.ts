@@ -17,6 +17,7 @@ export interface APISkyBlockAuction {
 	category: string;
 	tier: string;
 	starting_bid: number;
+	bin: boolean;
 	item_bytes: { type: number; data: string };
 	claimed: boolean;
 	claimed_bidders: unknown[];
