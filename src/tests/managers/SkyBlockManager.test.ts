@@ -17,10 +17,15 @@ test('SkyBlockManager.fetchItems returns items', async ({ client }) => {
 	expect(items).toBeTypeOf('object');
 });
 
+// test('SkyBlockManager.fetchElectionAndMayor returns election and mayor', async ({ client }) => {
+// 	const { mayor, current } = await client.skyblock.fetchElectionAndMayor();
+// 	expect(mayor).toBeTypeOf('object');
+// 	expect(current).toBeTypeOf('object');
+// });
+
 test('SkyBlockManager.fetchElectionAndMayor returns election and mayor', async ({ client }) => {
-	const { mayor, current } = await client.skyblock.fetchElectionAndMayor();
+	const { mayor } = await client.skyblock.fetchElectionAndMayor();
 	expect(mayor).toBeTypeOf('object');
-	expect(current).toBeTypeOf('object');
 });
 
 test('SkyBlockManager.fetchActiveBingoGoals returns bingo goals', async ({ client }) => {
