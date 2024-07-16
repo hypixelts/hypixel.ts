@@ -67,7 +67,7 @@ export interface FetchItemsResponseItem {
  */
 export interface FetchElectionAndMayorResponse extends BaseResourceResponse {
 	mayor: FetchElectionAndMayorResponseMayor;
-	current: FetchElectionAndMayorResponseCurrent;
+	current?: FetchElectionAndMayorResponseCurrent;
 }
 
 /**
@@ -78,7 +78,7 @@ export interface FetchElectionAndMayorResponseMayor {
 	name: string;
 	perks: FetchElectionAndMayorResponseMayorPerks[];
 	election: FetchElectionAndMayorResponseElection;
-	current: FetchElectionAndMayorResponseCurrent;
+	current?: FetchElectionAndMayorResponseCurrent;
 }
 
 /**
