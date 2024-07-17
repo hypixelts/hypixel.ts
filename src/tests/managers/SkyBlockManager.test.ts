@@ -58,6 +58,11 @@ test('SkyBlockManager.fetchProfile returns profile', async ({ client }) => {
 	expect(product).toBeInstanceOf(SkyBlockProfile);
 });
 
+test('SkyBlockManager.fetchMuseum returns SkyBlockMuseum[]', async ({ client }) => {
+	const members = await client.skyblock.fetchMuseum('644ef38b50794423995df9fdca3d121c');
+	expect(members).toBeTypeOf('object')
+})
+
 test('SkyBlockManager.fetchPlayerSkyBlockProfiles returns player profiles', async ({ client }) => {
 	const members = await client.skyblock.fetchPlayerSkyBlockProfiles('d62e8944ca274bcb8b0e43959446d659');
 	expect(members).toBeTypeOf('object');

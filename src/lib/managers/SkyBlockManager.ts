@@ -1,22 +1,23 @@
 import { BaseManager } from './BaseManager';
 import { HypixelTSError } from '../errors/index';
-import { SkyBlockProfile, SkyBlockAuction } from '../classes/index';
+import { SkyBlockProfile, SkyBlockAuction, SkyBlockMuseum } from '../classes/index';
 import type { Client } from '../Client';
-import type {
-	APISkyBlockProfile,
-	FetchCollectionsResponse,
-	FetchSkillsResponse,
-	FetchItemsResponse,
-	FetchElectionAndMayorResponse,
-	FetchActiveBingoGoalsResponse,
-	FetchNewsResponse,
-	APISkyBlockAuction,
-	FetchActiveAuctionsResponse,
-	FetchBazaarResponse,
-	RecentlyEndedAuctionsResponse,
-	FetchBingoDataResponse,
-	FetchFireSalesResponse,
-	FetchFireSalesResponseFireSale
+import {
+	type APISkyBlockProfile,
+	type FetchCollectionsResponse,
+	type FetchSkillsResponse,
+	type FetchItemsResponse,
+	type FetchElectionAndMayorResponse,
+	type FetchActiveBingoGoalsResponse,
+	type FetchNewsResponse,
+	type APISkyBlockAuction,
+	type FetchActiveAuctionsResponse,
+	type FetchBazaarResponse,
+	type RecentlyEndedAuctionsResponse,
+	type FetchBingoDataResponse,
+	type FetchFireSalesResponse,
+	type FetchFireSalesResponseFireSale,
+	APISkyBlockMuseum
 } from '../typings';
 
 /**
@@ -199,6 +200,24 @@ export class SkyBlockManager extends BaseManager {
 		const data = await this.makeGetRequest<APISkyBlockProfile>(`/skyblock/profile?profile=${profileUuid}`);
 
 		return new SkyBlockProfile(this.client, data);
+	}
+
+	/**
+	 * Fetch a Skyblock profile museum (using a SkyBlock profile uuid). The data returned can differ depending on the players in-game API settings.
+	 * @param profileUuid The uuid of the SkyBlock profile
+	 */
+	public async fetchMuseum(profileUuid: string): Promise<SkyBlockMuseum[]> {
+		if (!profileUuid) throw new HypixelTSError('METHOD_MISSING_OPTION', 'SkyBlockManager', 'fetchMuseum', 'profileUuid');
+
+		const { members } = await this.makeGetRequest<{ members: APISkyBlockMuseum[]}>(`/skyblock/museum?profile=${profileUuid}`);
+
+		const parsed = [];
+
+		for (const member of members) {
+			parsed.push(new SkyBlockMuseum(this.client, member));
+		}
+
+		return parsed;
 	}
 
 	/**

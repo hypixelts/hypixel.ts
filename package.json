@@ -1,12 +1,12 @@
 {
-	"name": "hypixel.ts",
-	"version": "2.0.0",
+	"name": "fixed.hypixel.ts",
+	"version": "2.0.1",
 	"description": "A simple, easy to use wrapper for Hypixel API.",
-	"homepage": "https://hypixel.js.org/",
+	"homepage": "https://github.com/EnchStudio/hypixel.ts/",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.mjs",
 	"types": "dist/cjs/index.d.ts",
-	"author": "FC5570",
+	"author": ["EnchStudio", ""],
 	"license": "MIT",
 	"exports": {
 		"require": {
@@ -57,10 +57,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/FC5570/hypixel.ts.git"
+		"url": "git+https://github.com/EnchStudio/hypixel.ts.git"
 	},
 	"bugs": {
-		"url": "https://github.com/FC5570/hypixel.ts/issues"
+		"url": "https://github.com/EnchStudio/hypixel.ts/issues"
 	},
 	"keywords": [
 		"hypixel",
