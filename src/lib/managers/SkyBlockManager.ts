@@ -206,18 +206,12 @@ export class SkyBlockManager extends BaseManager {
 	 * Fetch a Skyblock profile museum (using a SkyBlock profile uuid). The data returned can differ depending on the players in-game API settings.
 	 * @param profileUuid The uuid of the SkyBlock profile
 	 */
-	public async fetchMuseum(profileUuid: string): Promise<SkyBlockMuseum[]> {
+	public async fetchMuseum(profileUuid: string): Promise<SkyBlockMuseum> {
 		if (!profileUuid) throw new HypixelTSError('METHOD_MISSING_OPTION', 'SkyBlockManager', 'fetchMuseum', 'profileUuid');
 
-		const { members } = await this.makeGetRequest<{ members: APISkyBlockMuseum[]}>(`/skyblock/museum?profile=${profileUuid}`);
+		const data = await this.makeGetRequest<APISkyBlockMuseum>(`/skyblock/museum?profile=${profileUuid}`);
 
-		const parsed = [];
-
-		for (const member of members) {
-			parsed.push(new SkyBlockMuseum(this.client, member));
-		}
-
-		return parsed;
+		return new SkyBlockMuseum(this.client, data);
 	}
 
 	/**

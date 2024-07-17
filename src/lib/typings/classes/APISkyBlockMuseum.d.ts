@@ -2,7 +2,12 @@
  * The Museum object returned from the API (in JSON) which is converted to the @see {@link SkyBlockMuseum} class.
  * @category Interfaces
  */
+
 export interface APISkyBlockMuseum {
+	[key: string]: APISkyBlockMuseumMember
+}
+
+export interface APISkyBlockMuseumMember {
 	value: number
 	appraisal: boolean
 	items: APISkyBlockMuseumItemObject
