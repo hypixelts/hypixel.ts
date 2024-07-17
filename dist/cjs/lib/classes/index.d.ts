@@ -1,2 +1,2 @@
-export { Base, Guild, Player, SkyBlockAuction, SkyBlockProfile, Util } from '../../index.js';
+export { Base, Guild, Player, SkyBlockAuction, SkyBlockMuseum, SkyBlockProfile, Util } from '../../index.js';
 import '../rest/HypixelAPIError.js';

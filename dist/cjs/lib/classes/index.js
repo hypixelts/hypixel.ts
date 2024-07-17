@@ -25,6 +25,7 @@ __export(classes_exports, {
   Guild: () => Guild,
   Player: () => Player,
   SkyBlockAuction: () => SkyBlockAuction,
+  SkyBlockMuseum: () => SkyBlockMuseum,
   SkyBlockProfile: () => SkyBlockProfile,
   Util: () => Util
 });
@@ -103,6 +104,21 @@ var SkyBlockAuction = class extends Base {
 var SkyBlockProfile = class extends Base {
   static {
     __name(this, "SkyBlockProfile");
+  }
+  /**
+   * @param client Instantiated (and started) hypixel.ts client
+   * @param data SkyBlock profile data received from API
+   */
+  constructor(client, data) {
+    super(client);
+    Object.assign(this, data);
+  }
+};
+
+// src/lib/classes/SkyBlockMuseum.ts
+var SkyBlockMuseum = class extends Base {
+  static {
+    __name(this, "SkyBlockMuseum");
   }
   /**
    * @param client Instantiated (and started) hypixel.ts client
@@ -193,6 +209,7 @@ var Util = class extends Base {
   Guild,
   Player,
   SkyBlockAuction,
+  SkyBlockMuseum,
   SkyBlockProfile,
   Util
 });

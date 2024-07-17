@@ -35,6 +35,7 @@ __export(lib_exports, {
   ResourceManager: () => ResourceManager,
   SkyBlockAuction: () => SkyBlockAuction,
   SkyBlockManager: () => SkyBlockManager,
+  SkyBlockMuseum: () => SkyBlockMuseum,
   SkyBlockProfile: () => SkyBlockProfile,
   Util: () => Util,
   VanityPetsRarity: () => VanityPetsRarity
@@ -249,6 +250,21 @@ var SkyBlockAuction = class extends Base {
 var SkyBlockProfile = class extends Base {
   static {
     __name(this, "SkyBlockProfile");
+  }
+  /**
+   * @param client Instantiated (and started) hypixel.ts client
+   * @param data SkyBlock profile data received from API
+   */
+  constructor(client, data) {
+    super(client);
+    Object.assign(this, data);
+  }
+};
+
+// src/lib/classes/SkyBlockMuseum.ts
+var SkyBlockMuseum = class extends Base {
+  static {
+    __name(this, "SkyBlockMuseum");
   }
   /**
    * @param client Instantiated (and started) hypixel.ts client
@@ -587,6 +603,16 @@ var SkyBlockManager = class extends BaseManager {
     return new SkyBlockProfile(this.client, data);
   }
   /**
+   * Fetch a Skyblock profile museum (using a SkyBlock profile uuid). The data returned can differ depending on the players in-game API settings.
+   * @param profileUuid The uuid of the SkyBlock profile
+   */
+  async fetchMuseum(profileUuid) {
+    if (!profileUuid)
+      throw new HypixelTSError("METHOD_MISSING_OPTION", "SkyBlockManager", "fetchMuseum", "profileUuid");
+    const data = await this.makeGetRequest(`/skyblock/museum?profile=${profileUuid}`);
+    return new SkyBlockMuseum(this.client, data);
+  }
+  /**
    * Fetch a SkyBlock profiles of a player
    * @param playerUuid The uuid of the player
    */
@@ -788,6 +814,7 @@ var VanityPetsRarity = /* @__PURE__ */ ((VanityPetsRarity2) => {
   ResourceManager,
   SkyBlockAuction,
   SkyBlockManager,
+  SkyBlockMuseum,
   SkyBlockProfile,
   Util,
   VanityPetsRarity

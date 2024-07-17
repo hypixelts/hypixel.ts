@@ -281,6 +281,42 @@ interface APISkyBlockAuctionBankingTransaction {
 }
 
 /**
+ * The Museum object returned from the API (in JSON) which is converted to the @see {@link SkyBlockMuseum} class.
+ * @category Interfaces
+ */
+
+interface APISkyBlockMuseum {
+	[key: string]: APISkyBlockMuseumMember
+}
+
+interface APISkyBlockMuseumMember {
+	value: number
+	appraisal: boolean
+	items: APISkyBlockMuseumItemObject
+	special: APISkyBlockMuseumItem[]
+}
+
+interface APISkyBlockMuseumItemObject {
+	[key: string]: APISkyBlockMuseumItem
+}
+
+/**
+ * @category Interfaces
+ */
+interface APISkyBlockMuseumItem {
+	donated_time: number
+	items: APISkyBlockMuseumItemItem
+}
+
+/**
+ * @category Interfaces
+ */
+interface APISkyBlockMuseumItemItem {
+	type: number
+	data: string
+}
+
+/**
  * Response returned by mojang API for user uuid lookup
  * @category Interfaces
  * @see {@link Util.getUUID}
@@ -935,6 +971,21 @@ declare class SkyBlockAuction extends Base {
     constructor(client: Client, data: APISkyBlockAuction);
 }
 
+interface SkyBlockMuseum extends APISkyBlockMuseum {
+}
+/**
+ * The SkyBlockMuseum class.
+ * @category Classes
+ * @Group Classes
+ */
+declare class SkyBlockMuseum extends Base {
+    /**
+     * @param client Instantiated (and started) hypixel.ts client
+     * @param data SkyBlock profile data received from API
+     */
+    constructor(client: Client, data: APISkyBlockMuseum);
+}
+
 /**
  * Utility functions
  * @category Classes
@@ -1094,6 +1145,11 @@ declare class SkyBlockManager extends BaseManager {
      */
     fetchProfile(profileUuid: string): Promise<SkyBlockProfile>;
     /**
+     * Fetch a Skyblock profile museum (using a SkyBlock profile uuid). The data returned can differ depending on the players in-game API settings.
+     * @param profileUuid The uuid of the SkyBlock profile
+     */
+    fetchMuseum(profileUuid: string): Promise<SkyBlockMuseum>;
+    /**
      * Fetch a SkyBlock profiles of a player
      * @param playerUuid The uuid of the player
      */
@@ -1226,4 +1282,4 @@ interface ClientOptions {
     baseApiUrl?: string;
 }
 
-export { type APIGuild, type APIGuildMember, type APIGuildRank, type APIPlayer, type APISkyBlockAuction, type APISkyBlockAuctionBanking, type APISkyBlockAuctionBankingTransaction, type APISkyBlockAuctionBid, type APISkyBlockProfile, type APISkyBlockProfileMembers, type AchievementsResponse, type AchievementsResponseAchievement, type AchievementsResponseAchievementOnetime, type AchievementsResponseAchievementTiered, type ActiveNetworkBoostersResponse, type ActiveNetworkBoostersResponseActiveBooster, type ActiveNetworkBoostersResponseQueuedBooster, ApiRequest, type ApiRequestOptions, Base, BaseManager, type BaseResourceResponse, type ChallengesResponse, type ChallengesResponseChallenge, Client, type ClientOptions, type CurrentLeaderboardsResponse, type CurrentPlayerCountsResponse, type FetchActiveAuctionsResponse, type FetchActiveBingoGoalsResponse, type FetchActiveBingoGoalsResponseGoal, type FetchBazaarResponse, type FetchBazaarResponseProduct, type FetchBazaarResponseProductBuySummary, type FetchBazaarResponseProductQuickStatus, type FetchBazaarResponseProductSellSummary, type FetchBingoDataResponse, type FetchBingoDataResponseEvent, type FetchCollectionsResponse, type FetchCollectionsResponseCollection, type FetchElectionAndMayorResponse, type FetchElectionAndMayorResponseCurrent, type FetchElectionAndMayorResponseElection, type FetchElectionAndMayorResponseElectionCandidate, type FetchElectionAndMayorResponseMayor, type FetchElectionAndMayorResponseMayorPerks, type FetchFireSalesResponse, type FetchFireSalesResponseFireSale, type FetchItemsResponse, type FetchItemsResponseItem, type FetchNewsResponse, type FetchNewsResponseItem, type FetchSkillsResponse, type FetchSkillsResponseCollection, type FetchSkillsResponseSkill, type GameInformationResponse, type GameInformationResponseGame, type GetRecentlyPlayedGamesResponse, type GetStatusResponse, type GetUUIDResponse, type GetUsernameResponse, Guild, type GuildAchievementsResponse, GuildManager, OtherManager, Player, PlayerManager, type PunishmentStatisticsResponse, type QuestsResponse, type QuestsResponseQuest, type RecentlyEndedAuctionsResponse, type RecentlyEndedAuctionsResponseAuction, RequestManager, ResourceManager, SkyBlockAuction, SkyBlockManager, SkyBlockProfile, Util, type VanityCompanionsResponse, VanityPetsRarity, type VanityPetsResponse, type VanityPetsResponseRarity, type VanityPetsResponseType };
+export { type APIGuild, type APIGuildMember, type APIGuildRank, type APIPlayer, type APISkyBlockAuction, type APISkyBlockAuctionBanking, type APISkyBlockAuctionBankingTransaction, type APISkyBlockAuctionBid, type APISkyBlockMuseum, type APISkyBlockMuseumItem, type APISkyBlockMuseumItemItem, type APISkyBlockMuseumItemObject, type APISkyBlockMuseumMember, type APISkyBlockProfile, type APISkyBlockProfileMembers, type AchievementsResponse, type AchievementsResponseAchievement, type AchievementsResponseAchievementOnetime, type AchievementsResponseAchievementTiered, type ActiveNetworkBoostersResponse, type ActiveNetworkBoostersResponseActiveBooster, type ActiveNetworkBoostersResponseQueuedBooster, ApiRequest, type ApiRequestOptions, Base, BaseManager, type BaseResourceResponse, type ChallengesResponse, type ChallengesResponseChallenge, Client, type ClientOptions, type CurrentLeaderboardsResponse, type CurrentPlayerCountsResponse, type FetchActiveAuctionsResponse, type FetchActiveBingoGoalsResponse, type FetchActiveBingoGoalsResponseGoal, type FetchBazaarResponse, type FetchBazaarResponseProduct, type FetchBazaarResponseProductBuySummary, type FetchBazaarResponseProductQuickStatus, type FetchBazaarResponseProductSellSummary, type FetchBingoDataResponse, type FetchBingoDataResponseEvent, type FetchCollectionsResponse, type FetchCollectionsResponseCollection, type FetchElectionAndMayorResponse, type FetchElectionAndMayorResponseCurrent, type FetchElectionAndMayorResponseElection, type FetchElectionAndMayorResponseElectionCandidate, type FetchElectionAndMayorResponseMayor, type FetchElectionAndMayorResponseMayorPerks, type FetchFireSalesResponse, type FetchFireSalesResponseFireSale, type FetchItemsResponse, type FetchItemsResponseItem, type FetchNewsResponse, type FetchNewsResponseItem, type FetchSkillsResponse, type FetchSkillsResponseCollection, type FetchSkillsResponseSkill, type GameInformationResponse, type GameInformationResponseGame, type GetRecentlyPlayedGamesResponse, type GetStatusResponse, type GetUUIDResponse, type GetUsernameResponse, Guild, type GuildAchievementsResponse, GuildManager, OtherManager, Player, PlayerManager, type PunishmentStatisticsResponse, type QuestsResponse, type QuestsResponseQuest, type RecentlyEndedAuctionsResponse, type RecentlyEndedAuctionsResponseAuction, RequestManager, ResourceManager, SkyBlockAuction, SkyBlockManager, SkyBlockMuseum, SkyBlockProfile, Util, type VanityCompanionsResponse, VanityPetsRarity, type VanityPetsResponse, type VanityPetsResponseRarity, type VanityPetsResponseType };

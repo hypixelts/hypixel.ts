@@ -4,7 +4,7 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 // src/lib/managers/SkyBlockManager.ts
 import { BaseManager } from "./BaseManager.mjs";
 import { HypixelTSError } from "../errors/index.mjs";
-import { SkyBlockProfile, SkyBlockAuction } from "../classes/index.mjs";
+import { SkyBlockProfile, SkyBlockAuction, SkyBlockMuseum } from "../classes/index.mjs";
 var SkyBlockManager = class extends BaseManager {
   static {
     __name(this, "SkyBlockManager");
@@ -158,6 +158,16 @@ var SkyBlockManager = class extends BaseManager {
       throw new HypixelTSError("METHOD_MISSING_OPTION", "SkyBlockManager", "fetchProfile", "profileUuid");
     const data = await this.makeGetRequest(`/skyblock/profile?profile=${profileUuid}`);
     return new SkyBlockProfile(this.client, data);
+  }
+  /**
+   * Fetch a Skyblock profile museum (using a SkyBlock profile uuid). The data returned can differ depending on the players in-game API settings.
+   * @param profileUuid The uuid of the SkyBlock profile
+   */
+  async fetchMuseum(profileUuid) {
+    if (!profileUuid)
+      throw new HypixelTSError("METHOD_MISSING_OPTION", "SkyBlockManager", "fetchMuseum", "profileUuid");
+    const data = await this.makeGetRequest(`/skyblock/museum?profile=${profileUuid}`);
+    return new SkyBlockMuseum(this.client, data);
   }
   /**
    * Fetch a SkyBlock profiles of a player

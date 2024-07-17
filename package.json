@@ -1,6 +1,6 @@
 {
 	"name": "fixed.hypixel.ts",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "A simple, easy to use wrapper for Hypixel API.",
 	"homepage": "https://github.com/EnchStudio/hypixel.ts/",
 	"main": "dist/cjs/index.js",
