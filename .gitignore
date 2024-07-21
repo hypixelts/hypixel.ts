@@ -2,3 +2,4 @@
 *.gz
 node_modules/
 docs/
+dist/

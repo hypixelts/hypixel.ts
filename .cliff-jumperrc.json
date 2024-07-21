@@ -2,7 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/favware/cliff-jumper/main/assets/cliff-jumper.schema.json",
 	"name": "hypixel.ts",
 	"packagePath": ".",
-	"dryRun": true,
+	"dryRun": false,
 	"commitMessageTemplate": "chore(release): release {{new-version}}",
 	"tagTemplate": "v{{new-version}}"
 }

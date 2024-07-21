@@ -1,3 +1,5 @@
+import type { SkyBlockAuction } from '../../classes/SkyBlockAuction';
+
 /**
  * The Auction object returned from the API (in JSON) which is converted to the @see {@link SkyBlockAuction} class.
  * @category Interfaces

@@ -1,3 +1,5 @@
+import type { PlayerManager } from '../../managers/PlayerManager';
+
 /**
  * Recently played games returned by hypixel API
  * @category Interfaces

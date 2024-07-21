@@ -1,3 +1,5 @@
+import type { Guild } from '../../classes/Guild';
+
 /**
  * The Guild object returned from the API (in JSON) which is converted to @see {@link Guild} class.
  * @category Interfaces

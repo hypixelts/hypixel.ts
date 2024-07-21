@@ -1,3 +1,5 @@
+import type { Player } from '../../classes/Player';
+
 /**
  * The Player object returned from the API (in JSON) which is converted to the @see {@link Player} class.
  * @category Interfaces

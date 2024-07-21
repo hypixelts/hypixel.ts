@@ -1,3 +1,5 @@
+import type { ResourceManager } from '../../managers/ResourceManager';
+
 /**
  * All other responses extend this interface as they have the common property 'lastUpdated'.
  * @category Interfaces
