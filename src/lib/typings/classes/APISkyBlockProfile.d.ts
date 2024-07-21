@@ -1,3 +1,5 @@
+import type { SkyBlockProfile } from '../../classes/SkyBlockProfile';
+
 /**
  * The Profile object returned from the API (in JSON) which is converted to the @see {@link SkyBlockProfile} class.
  * @category Interfaces

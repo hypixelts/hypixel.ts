@@ -1,3 +1,5 @@
+import type { Util } from '../../classes/Util';
+
 /**
  * Response returned by mojang API for user uuid lookup
  * @category Interfaces
