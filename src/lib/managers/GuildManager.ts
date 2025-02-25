@@ -3,6 +3,7 @@ import { HypixelTSError } from '../errors/HypixelTSError';
 import { Guild } from '../classes/Guild';
 import type { APIGuild } from '../typings';
 import type { Client } from '../Client';
+import type { Logger } from '../Logger';
 
 /**
  * Guild related endpoints
@@ -10,8 +11,8 @@ import type { Client } from '../Client';
  * @group Managers
  */
 export class GuildManager extends BaseManager {
-	public constructor(client: Client) {
-		super(client, true);
+	public constructor(client: Client, logger: Logger) {
+		super(client, true, logger);
 	}
 
 	/**

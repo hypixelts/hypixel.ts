@@ -3,6 +3,7 @@ import { Client } from '../Client';
 import { Player, Util } from '../classes/index';
 import { HypixelTSError } from '../errors/index';
 import type { APIPlayer, GetRecentlyPlayedGamesResponse, GetStatusResponse } from '../typings';
+import type { Logger } from '..//Logger';
 
 /**
  * Player related endpoints.
@@ -10,8 +11,8 @@ import type { APIPlayer, GetRecentlyPlayedGamesResponse, GetStatusResponse } fro
  * @group Managers
  */
 export class PlayerManager extends BaseManager {
-	public constructor(client: Client) {
-		super(client, true);
+	public constructor(client: Client, logger: Logger) {
+		super(client, true, logger);
 	}
 
 	/**

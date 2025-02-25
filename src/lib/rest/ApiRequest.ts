@@ -1,47 +1,22 @@
 import { RequestManager, HypixelAPIError, type HypixelAPIErrorResponse } from './index';
 import { HypixelTSError } from '../errors/index';
+import { Logger } from '../Logger';
 
-/**
- * The options supplied to the request
- * @category Rest
- * @group Rest
- */
 export interface ApiRequestOptions {
-	/**
-	 * The request path/endpoint
-	 */
 	path: string;
-
-	/**
-	 * The request method, only `GET` is supported
-	 */
 	method?: 'GET';
-
-	/**
-	 * Whether to send the API key for this request
-	 */
 	sendAPIKey?: boolean;
 }
 
-/**
- * Handles (sending/building options) requests
- * @category Rest
- * @group Rest
- */
 export class ApiRequest {
-	/**
-	 * The request manager instance
-	 */
 	public requests: RequestManager;
-
-	/**
-	 * The options of this request
-	 */
 	public options: ApiRequestOptions;
+	private logger: Logger;
 
-	public constructor(requestManager: RequestManager, options: ApiRequestOptions) {
+	public constructor(requestManager: RequestManager, options: ApiRequestOptions, logger: Logger) {
 		this.requests = requestManager;
 		this.options = options;
+		this.logger = logger;
 	}
 
 	/**
@@ -50,32 +25,79 @@ export class ApiRequest {
 	public async make() {
 		const options = this.buildOptions();
 
-		const res = await fetch(options.url, {
-			...options
-		});
-
-		if (!res.ok) {
-			const error = (await res.json()) as HypixelAPIErrorResponse;
-			throw new HypixelAPIError(error?.cause ?? res.statusText, res.status);
+		if (!this.options.sendAPIKey) {
+			return this.makeRequest(options);
 		}
 
-		return res;
+		const apiKeys = this.requests.client.options?.apiKeys ?? [];
+
+		if (!apiKeys.length) {
+			throw new HypixelTSError('CLIENT_OPTIONS_MISSING', 'apiKeys');
+		}
+
+		return this.makeRequestWithKeys(options, apiKeys);
+	}
+
+	/**
+	 * Make a request with the provided API keys until successful request or exhaustion
+	 */
+	private async makeRequestWithKeys(options: ReturnType<typeof this.buildOptions>, apiKeys: string[]) {
+		const errors: HypixelAPIError[] = [];
+
+		for (let i = 0; i < apiKeys.length; i++) {
+			try {
+				const requestOptions = {
+					...options,
+					headers: {
+						...options.headers,
+						'API-Key': apiKeys[i]
+					}
+				};
+				this.logger.trace(`Making request with API key ${i + 1}`);
+
+				const res = await this.makeRequest(requestOptions);
+
+				if (!res.ok) {
+					const json = (await res.json()) as HypixelAPIErrorResponse;
+					const errorMessage = `${json.cause} [API key ${i + 1}]`;
+
+					if (res.status === 403 || res.status === 429) {
+						throw new HypixelAPIError(errorMessage, res.status);
+					}
+
+					throw new HypixelAPIError(json.cause, res.status);
+				}
+
+				this.logger.trace(`Successful request with API key ${i + 1}`, res);
+				return res;
+			} catch (error) {
+				if (error instanceof HypixelAPIError && (error.code === 403 || error.code === 429)) {
+					this.logger.debug(`Encountered ${error.code} error with API key ${i + 1}. Moving on to the next one`);
+					errors.push(error);
+					continue;
+				}
+				throw error;
+			}
+		}
+
+		if (errors.length > 0) {
+			throw new AggregateError(errors, `All ${apiKeys.length} API keys have been exhausted with no successful requests.`);
+		}
+
+		throw new HypixelTSError('API_KEYS_EXHAUSTED', apiKeys.length);
+	}
+
+	private async makeRequest(options: ReturnType<typeof this.buildOptions>) {
+		return fetch(options.url, { ...options });
 	}
 
 	/**
 	 * Creates an object containing the options to be passed to the request
 	 */
-	public buildOptions() {
-		const apiKey = this.requests.client.options?.apiKey;
-
+	private buildOptions() {
 		const headers: Record<string, string> = {
 			'Content-Type': 'application/json'
 		};
-
-		if (this.options.sendAPIKey) {
-			if (!apiKey) throw new HypixelTSError('CLIENT_OPTIONS_MISSING', 'apiKey');
-			headers['API-Key'] = apiKey;
-		}
 
 		const options = {
 			url: `${this.requests.baseApiUrl}${this.options.path}`,

@@ -9,6 +9,7 @@ import type {
 	QuestsResponse,
 	VanityCompanionsResponse
 } from '../typings';
+import type { Logger } from '../Logger';
 
 /**
  * Resource endpoints.
@@ -19,8 +20,8 @@ import type {
  * @group Managers
  */
 export class ResourceManager extends BaseManager {
-	public constructor(client: Client) {
-		super(client, false);
+	public constructor(client: Client, logger: Logger) {
+		super(client, false, logger);
 	}
 
 	/**

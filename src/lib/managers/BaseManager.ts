@@ -1,4 +1,5 @@
 import type { Client } from '../Client';
+import type { Logger } from '../Logger';
 
 /**
  * The base manager which all other managers extend from
@@ -16,9 +17,17 @@ export class BaseManager {
 	 */
 	protected client: Client;
 
-	public constructor(client: Client, requiresAuth: boolean) {
+	/**
+	 * The logger instance.
+	 */
+	protected logger: Logger;
+
+	public constructor(client: Client, requiresAuth: boolean, logger: Logger) {
 		this.client = client;
 		this.requiresAuth = requiresAuth;
+		this.logger = logger;
+
+		this.logger.trace(`${this.constructor.name} initialized`);
 	}
 
 	/**

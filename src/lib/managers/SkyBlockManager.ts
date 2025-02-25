@@ -18,6 +18,7 @@ import type {
 	FetchFireSalesResponse,
 	FetchFireSalesResponseFireSale
 } from '../typings';
+import type { Logger } from '../Logger';
 
 /**
  * Skyblock related endpoints
@@ -26,8 +27,8 @@ import type {
  * @see {@link https://api.hypixel.net/#tag/SkyBlock}
  */
 export class SkyBlockManager extends BaseManager {
-	public constructor(client: Client) {
-		super(client, true);
+	public constructor(client: Client, logger: Logger) {
+		super(client, true, logger);
 	}
 
 	/**
@@ -192,6 +193,8 @@ export class SkyBlockManager extends BaseManager {
 	/**
 	 * Fetch a SkyBlock profile (using a SkyBlock profile uuid). The data returned can differ depending on the players in-game API settings.
 	 * @param profileUuid The uuid of the SkyBlock profile
+	 *
+	 * @deprecated
 	 */
 	public async fetchProfile(profileUuid: string): Promise<SkyBlockProfile> {
 		if (!profileUuid) throw new HypixelTSError('METHOD_MISSING_OPTION', 'SkyBlockManager', 'fetchProfile', 'profileUuid');
@@ -204,6 +207,8 @@ export class SkyBlockManager extends BaseManager {
 	/**
 	 * Fetch a SkyBlock profiles of a player
 	 * @param playerUuid The uuid of the player
+	 *
+	 * @deprecated
 	 */
 	public async fetchPlayerSkyBlockProfiles(playerUuid: string): Promise<SkyBlockProfile[]> {
 		if (!playerUuid) throw new HypixelTSError('METHOD_MISSING_OPTION', 'SkyBlockManager', 'fetchPlayerSkyBlockProfiles', 'playerUuid');
