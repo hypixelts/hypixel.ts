@@ -38,7 +38,7 @@ Get the info of a player:
 ```typescript
 import { Client } from 'hypixel.ts';
 
-const client = new Client('API_KEY');
+const client = new Client({ apiKeys: ['YOUR_API_KEY'] }).start();
 
 client.players.fetch('armc').then(console.log);
 ```
@@ -48,7 +48,7 @@ Get a skyblock profile:
 ```typescript
 import { Client } from 'hypixel.ts';
 
-const client = new Client('API_KEY');
+const client = new Client({ apiKeys: ['YOUR_API_KEY'] }).start();
 
 client.skyblock.getProfile('lifelong').then(console.log);
 ```
