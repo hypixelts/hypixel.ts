@@ -13,6 +13,12 @@ export interface ClientOptions {
 	apiKeys?: string[] | null;
 
 	/**
+	 * Enable debug mode. This will log all requests and responses to the console.
+	 * For more verbose logging, set this to 'trace'.
+	 */
+	debug?: boolean | 'trace';
+
+	/**
 	 * The base hypixel api url
 	 * @private
 	 */

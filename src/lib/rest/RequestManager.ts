@@ -1,6 +1,7 @@
 import { AsyncQueue } from '@sapphire/async-queue';
 import { ApiRequest } from './ApiRequest';
 import { Client } from '../Client';
+import type { Logger } from '..//Logger';
 
 /**
  * Manages the requests to the API
@@ -24,10 +25,13 @@ export class RequestManager {
 	 */
 	private queue: AsyncQueue;
 
-	public constructor(client: Client) {
+	private logger: Logger;
+
+	public constructor(client: Client, logger: Logger) {
 		this.client = client;
 		this.baseApiUrl = client.options?.baseApiUrl ?? 'https://api.hypixel.net/v2';
 		this.queue = new AsyncQueue();
+		this.logger = logger;
 	}
 
 	/**
@@ -38,7 +42,7 @@ export class RequestManager {
 	public async execute<T>(path: string, sendAPIKey: boolean) {
 		await this.queue.wait();
 		try {
-			const request = await new ApiRequest(this, { path, sendAPIKey }).make();
+			const request = await new ApiRequest(this, { path, sendAPIKey }, this.logger).make();
 			return request.json() as T;
 		} finally {
 			this.queue.shift();

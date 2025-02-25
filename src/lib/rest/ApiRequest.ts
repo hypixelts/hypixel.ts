@@ -1,5 +1,6 @@
 import { RequestManager, HypixelAPIError, type HypixelAPIErrorResponse } from './index';
 import { HypixelTSError } from '../errors/index';
+import { Logger } from '../Logger';
 
 export interface ApiRequestOptions {
 	path: string;
@@ -10,10 +11,12 @@ export interface ApiRequestOptions {
 export class ApiRequest {
 	public requests: RequestManager;
 	public options: ApiRequestOptions;
+	private logger: Logger;
 
-	public constructor(requestManager: RequestManager, options: ApiRequestOptions) {
+	public constructor(requestManager: RequestManager, options: ApiRequestOptions, logger: Logger) {
 		this.requests = requestManager;
 		this.options = options;
+		this.logger = logger;
 	}
 
 	/**
@@ -50,6 +53,8 @@ export class ApiRequest {
 						'API-Key': apiKeys[i]
 					}
 				};
+				this.logger.trace(`Making request with API key ${i + 1}`);
+
 				const res = await this.makeRequest(requestOptions);
 
 				if (!res.ok) {
@@ -63,9 +68,11 @@ export class ApiRequest {
 					throw new HypixelAPIError(json.cause, res.status);
 				}
 
+				this.logger.trace(`Successful request with API key ${i + 1}`, res);
 				return res;
 			} catch (error) {
 				if (error instanceof HypixelAPIError && (error.code === 403 || error.code === 429)) {
+					this.logger.debug(`Encountered ${error.code} error with API key ${i + 1}. Moving on to the next one`);
 					errors.push(error);
 					continue;
 				}

@@ -1,5 +1,6 @@
 import { PlayerManager, GuildManager, ResourceManager, OtherManager, SkyBlockManager } from './managers/index';
 import { RequestManager } from './rest/index';
+import { Logger } from './Logger';
 import type { ClientOptions } from '../index';
 
 /**
@@ -15,9 +16,11 @@ export class Client {
 	public others!: OtherManager;
 	public skyblock!: SkyBlockManager;
 
+	private logger = new Logger(this.options?.debug === true ? 'debug' : this.options?.debug === 'trace' ? 'trace' : null);
+
 	public constructor(options?: ClientOptions) {
 		this.options = options ?? {};
-		this.options.baseApiUrl = 'https://api.hypixel.net';
+		this.options.baseApiUrl = 'https://api.hypixel.net/v2';
 	}
 
 	/**
@@ -26,6 +29,7 @@ export class Client {
 	 */
 	public start() {
 		this.registerManagers();
+		this.logger.debug('Client managers registered');
 		return this;
 	}
 
@@ -33,11 +37,11 @@ export class Client {
 	 * Register all the managers
 	 */
 	private registerManagers() {
-		this.requests = new RequestManager(this);
-		this.players = new PlayerManager(this);
-		this.guilds = new GuildManager(this);
-		this.resources = new ResourceManager(this);
-		this.others = new OtherManager(this);
-		this.skyblock = new SkyBlockManager(this);
+		this.requests = new RequestManager(this, this.logger);
+		this.players = new PlayerManager(this, this.logger);
+		this.guilds = new GuildManager(this, this.logger);
+		this.resources = new ResourceManager(this, this.logger);
+		this.others = new OtherManager(this, this.logger);
+		this.skyblock = new SkyBlockManager(this, this.logger);
 	}
 }

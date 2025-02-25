@@ -18,6 +18,7 @@ import type {
 	FetchFireSalesResponse,
 	FetchFireSalesResponseFireSale
 } from '../typings';
+import type { Logger } from '../Logger';
 
 /**
  * Skyblock related endpoints
@@ -26,8 +27,8 @@ import type {
  * @see {@link https://api.hypixel.net/#tag/SkyBlock}
  */
 export class SkyBlockManager extends BaseManager {
-	public constructor(client: Client) {
-		super(client, true);
+	public constructor(client: Client, logger: Logger) {
+		super(client, true, logger);
 	}
 
 	/**

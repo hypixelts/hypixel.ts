@@ -6,6 +6,7 @@ import type {
 	CurrentLeaderboardsResponse,
 	PunishmentStatisticsResponse
 } from '../typings';
+import type { Logger } from '../Logger';
 
 /**
  * Other endpoints
@@ -14,8 +15,8 @@ import type {
  * @see {@link https://api.hypixel.net/#tag/Other}
  */
 export class OtherManager extends BaseManager {
-	public constructor(client: Client) {
-		super(client, true);
+	public constructor(client: Client, logger: Logger) {
+		super(client, true, logger);
 	}
 
 	/**
