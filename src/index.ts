@@ -6,10 +6,11 @@ export * from './lib/index';
  */
 export interface ClientOptions {
 	/**
-	 * The hypixel api key.
+	 * A list of hypixel API keys. Only one will be used at a time.
+	 * If the API returns a 403/429 error with one key, the next in the list will be used.
 	 * This is optional to provide as some managers support non auth requests.
 	 */
-	apiKey?: string;
+	apiKeys?: string[] | null;
 
 	/**
 	 * The base hypixel api url

@@ -7,8 +7,14 @@ interface TestFixtures {
 }
 
 export const test = (viTest as TestAPI).extend<TestFixtures>({
-	client: new Client({ apiKey: process.env.VITE_HYPIXEL_API_KEY }).start(),
-	nonAuthClient: new Client().start()
+	client: async ({}, use) => {
+		const client = new Client({ apiKeys: [process.env.VITE_HYPIXEL_API_KEY] }).start();
+		await use(client);
+	},
+	nonAuthClient: async ({}, use) => {
+		const client = new Client().start();
+		await use(client);
+	}
 });
 
 declare module 'vitest' {

@@ -26,7 +26,7 @@ export class RequestManager {
 
 	public constructor(client: Client) {
 		this.client = client;
-		this.baseApiUrl = client.options?.baseApiUrl ?? 'https://api.hypixel.net';
+		this.baseApiUrl = client.options?.baseApiUrl ?? 'https://api.hypixel.net/v2';
 		this.queue = new AsyncQueue();
 	}
 

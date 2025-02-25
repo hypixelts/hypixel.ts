@@ -17,9 +17,9 @@
 
 hypixel.ts is a [NodeJS](https://nodejs.org) wrapper for the [Hypixel API](https://api.hypixel.net) which allows you to interact with it easily.
 
--   Written in Typescript
--   CommonJS, ESM support
--   100% coverage of Hypixel API
+- Written in Typescript
+- CommonJS, ESM support
+- 100% coverage of Hypixel API
 
 ## Installation
 
@@ -55,10 +55,10 @@ client.skyblock.getProfile('lifelong').then(console.log);
 
 ## Links
 
--   [Documentation](https://hypixel.js.org/)
--   [Discord Server](https://discord.gg/DDTmaeYUMF)
--   [Github](https://github.com/FC5570/hypixel.ts)
--   [npm](https://npmjs.com/package/hypixel.ts)
+- [Documentation](https://hypixel.js.org/)
+- [Discord Server](https://discord.gg/DDTmaeYUMF)
+- [Github](https://github.com/FC5570/hypixel.ts)
+- [npm](https://npmjs.com/package/hypixel.ts)
 
 ## Help
 

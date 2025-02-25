@@ -1,7 +1,9 @@
 {
+	"$schema": "https://typedoc.org/schema.json",
 	"entryPoints": ["src/index.ts", "src/lib/typings/index.ts"],
 	"cleanOutputDir": true,
 	"excludeExternals": true,
+	"excludePrivate": false,
 	"out": "docs",
 	"readme": "./README.md",
 	"navigation": {

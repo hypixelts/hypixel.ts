@@ -10,5 +10,6 @@
 		"skipDefaultLibCheck": true,
 		"skipLibCheck": true
 	},
-	"exclude": ["tests", "src/**/*.d.ts"]
+	"include": ["src/**/*"],
+	"exclude": ["src/tests", "src/**/*.d.ts"]
 }
